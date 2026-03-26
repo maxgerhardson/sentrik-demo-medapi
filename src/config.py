@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-OWASP-003, REQ-HIPAA-001 — Application configuration and secrets management
 """Application configuration."""
 import os
 from os import *  # FINDING #6: Star import (AST — star import)

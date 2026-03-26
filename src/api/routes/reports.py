@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-SOC2-001, REQ-IEC-005 — Clinical reporting endpoints
 """Clinical reporting endpoints."""
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session

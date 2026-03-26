@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-006, REQ-HIPAA-001 — Vitals ingestion with clinical validation and PHI protection
 """Vital signs ingestion and query endpoints."""
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session

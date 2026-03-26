@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-OWASP-006 — Rate limiting middleware
 """Rate limiting middleware — placeholder.
 
 FINDING #14 context: Rate limiting is not implemented.

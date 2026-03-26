@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-006, REQ-OWASP-008 — Clinical alerting endpoints
 """Clinical alert endpoints."""
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session

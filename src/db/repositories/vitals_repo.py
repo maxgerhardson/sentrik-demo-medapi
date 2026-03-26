@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-001, REQ-IEC-006 — Vital signs data access
 from datetime import datetime
 from typing import Optional
 from sqlalchemy.orm import Session

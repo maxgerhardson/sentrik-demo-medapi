@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-004, REQ-SOC2-001 — Request audit logging middleware
 """Audit logging middleware — placeholder.
 
 FINDING #11 context: Middleware exists but does nothing.

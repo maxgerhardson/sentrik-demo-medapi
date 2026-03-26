@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-003, REQ-IEC-004 — Patient management tests
 """Tests for patient management endpoints."""
 import pytest
 from fastapi.testclient import TestClient

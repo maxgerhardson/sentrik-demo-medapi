@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-005 — Requirement traceability headers for API requests
 """Requirement traceability utilities.
 
 Provides request-level traceability headers linking API calls

@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-001, REQ-HIPAA-002 — PHI encryption at rest and in transit
 """PHI encryption service — placeholder.
 
 FINDING #10 context: This service exists but is NOT used by the repositories

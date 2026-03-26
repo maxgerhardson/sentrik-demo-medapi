@@ -1,3 +1,4 @@
+// REQUIREMENT: REQ-OWASP-001, REQ-HIPAA-002 — Client utilities with input validation and secure transport
 /**
  * VitalSync Client Utilities — browser/Node.js helper for API consumers.
  *

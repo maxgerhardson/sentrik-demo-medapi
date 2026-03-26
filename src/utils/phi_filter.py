@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-005 — PHI data masking for minimum necessary standard
 """PHI data masking for logs — placeholder.
 
 The v2 fix will wire this into logging configuration so that

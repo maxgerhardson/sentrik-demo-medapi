@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-002 — Response encryption middleware
 """Encryption middleware — placeholder.
 
 This would enforce that responses containing PHI are properly

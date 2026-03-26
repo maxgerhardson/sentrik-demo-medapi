@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-003, REQ-OWASP-002 — JWT authentication middleware
 """Authentication middleware — minimal placeholder.
 
 FINDING #4 context: Authentication exists but is NOT enforced on
