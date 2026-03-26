@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-001, REQ-HIPAA-003 — Patient data access with access control
 from typing import Optional
 from sqlalchemy.orm import Session
 from src.models.patient import Patient

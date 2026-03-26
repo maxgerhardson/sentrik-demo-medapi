@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-001, REQ-IEC-006 — Vital signs data model with clinical validation
 from datetime import datetime
 from typing import Optional
 

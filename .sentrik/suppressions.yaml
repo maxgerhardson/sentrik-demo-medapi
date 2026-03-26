@@ -1,0 +1,48 @@
+# =============================================================================
+# Sentrik Suppressions — VitalSync Medical API
+# =============================================================================
+# Suppress findings that are false positives or accepted risks.
+# Each suppression must have a reason and approved_by.
+# =============================================================================
+
+suppressions:
+  # Configuration files don't need traceability headers
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: "*.yaml"
+    reason: "YAML configuration files are not source code — traceability is tracked via git history"
+    approved_by: "engineering@vitalsync.example.com"
+
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: "*.yml"
+    reason: "YAML configuration files are not source code"
+    approved_by: "engineering@vitalsync.example.com"
+
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: "*.toml"
+    reason: "TOML configuration files are not source code"
+    approved_by: "engineering@vitalsync.example.com"
+
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: "*.md"
+    reason: "Markdown documentation files are not source code"
+    approved_by: "engineering@vitalsync.example.com"
+
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: "Dockerfile"
+    reason: "Container build files are infrastructure, not medical device software"
+    approved_by: "engineering@vitalsync.example.com"
+
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: ".env.example"
+    reason: "Environment template is not source code"
+    approved_by: "engineering@vitalsync.example.com"
+
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: ".gitignore"
+    reason: "Git configuration is not source code"
+    approved_by: "engineering@vitalsync.example.com"
+
+  - rule_id: "IEC62304-TRACE-001"
+    file_glob: ".sentrik/**"
+    reason: "Sentrik configuration files are tooling, not medical device software"
+    approved_by: "engineering@vitalsync.example.com"

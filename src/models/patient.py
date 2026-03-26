@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-001, REQ-HIPAA-007 — Patient PHI model with encryption and integrity
 from datetime import date, datetime
 from typing import Optional
 

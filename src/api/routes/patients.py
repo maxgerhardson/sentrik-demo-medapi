@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-003, REQ-OWASP-001 — Patient management with access control and input validation
 """Patient management endpoints."""
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session

@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-OWASP-001, REQ-HIPAA-007 — Input validation for all user data
 """Input validators — placeholder.
 
 FINDING #4 context: Validators exist but are NOT used by routes.

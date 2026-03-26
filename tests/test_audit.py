@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-003, REQ-SOC2-001 — Audit service tests
 """Tests for audit service."""
 import pytest
 from src.services.audit_service import log_event, get_audit_log

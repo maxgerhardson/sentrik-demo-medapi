@@ -1,3 +1,4 @@
+/* REQUIREMENT: REQ-IEC-005, REQ-IEC-006 — Device firmware integrity verification */
 /**
  * Firmware checksum utility — validates device firmware integrity.
  *

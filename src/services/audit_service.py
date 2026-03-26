@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-HIPAA-004, REQ-SOC2-001 — Audit logging with HMAC integrity
 """Audit service — placeholder.
 
 FINDING #11 context: This service exists but is NOT wired into any

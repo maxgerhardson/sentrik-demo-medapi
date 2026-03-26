@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-001, REQ-IEC-002 — Application entry point and configuration
 """VitalSync Medical API — Patient Vitals Ingestion Service.
 
 A FastAPI service that ingests patient vital signs from wearable medical

@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-005 — Device registration and management
 """Device registration and management endpoints."""
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session

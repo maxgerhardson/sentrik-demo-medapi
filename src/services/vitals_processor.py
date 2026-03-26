@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-006, REQ-HIPAA-007 — Vitals processing with clinical validation
 """Vitals processing service — ingestion, validation, and storage.
 
 This module handles the core business logic for processing vital signs

@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-003, REQ-HIPAA-001 — Encryption service tests
 """Tests for encryption service."""
 import pytest
 from src.services.encryption_service import encrypt_phi, decrypt_phi

@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-OWASP-001, REQ-HIPAA-001 — Database connection and query layer
 import hashlib
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, Session

@@ -27,6 +27,9 @@ env/
 # Sentrik output (regenerated on each scan)
 out/
 
+# Sentrik cache
+.guard_cache/
+
 # OS
 .DS_Store
 Thumbs.db

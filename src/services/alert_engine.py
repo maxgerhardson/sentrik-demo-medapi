@@ -1,3 +1,4 @@
+# REQUIREMENT: REQ-IEC-006, REQ-OWASP-008 — Clinical alert engine with threshold monitoring
 """Clinical alert engine — monitors vital signs and generates alerts.
 
 This module evaluates incoming vital signs against clinical thresholds
