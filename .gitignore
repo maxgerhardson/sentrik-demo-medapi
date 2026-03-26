@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables (NEVER commit secrets)
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sentrik local state (machine-specific, not shared)
+.sentrik/local/
+
+# Sentrik output (regenerated on each scan)
+out/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite3

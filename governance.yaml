@@ -1,0 +1,117 @@
+# =============================================================================
+# VitalSync Medical API — Governance Policy
+# =============================================================================
+# Governance policies for the development lifecycle. Evaluated by
+# `sentrik check-policies`. These policies define when human review
+# is required, what can be auto-patched, and gate behavior.
+#
+# Profile: standard (balanced between velocity and control)
+# =============================================================================
+
+governance:
+  profile: standard
+
+  # Human review gates — when manual approval is required
+  human_review_required:
+    - trigger: on_critical_finding
+      description: "Critical findings require human review before merge"
+      approvers:
+        - role: security_lead
+        - role: tech_lead
+
+    - trigger: on_requirement_change
+      description: "Changes to requirements.yaml require regulatory review"
+      approvers:
+        - role: regulatory_affairs
+
+    - trigger: on_auto_patch_above
+      severity: medium
+      description: "Auto-patches above medium severity need human verification"
+      approvers:
+        - role: tech_lead
+
+  # Auto-patching controls
+  auto_patch:
+    enabled: true
+    max_severity: low
+    strategies:
+      - comment_out
+      - replace_match
+    require_review_above: medium
+
+  # Gate enforcement
+  gate:
+    fail_on:
+      - critical
+      - high
+    block_merge_on_obligations: false
+    require_clean_gate_for_release: true
+
+  # Audit logging
+  audit:
+    enabled: true
+    log_file: "out/agent_audit.jsonl"
+    include_policy_justification: true
+    integrity_check: hmac-sha256
+
+  # Notification policies
+  notifications:
+    on_gate_failed:
+      - channel: pr_comment
+      - channel: slack
+    on_critical_finding:
+      - channel: pr_comment
+      - channel: email
+    on_approval_required:
+      - channel: pr_comment
+
+# =============================================================================
+# Policy-as-Code Rules
+# =============================================================================
+# Custom policies evaluated by `sentrik check-policies`
+
+policies:
+  - id: POL-001
+    name: "No direct database access from API layer"
+    description: "API routes must go through service layer for all data operations"
+    check: architecture
+    rule_ref: ARCH-001
+    enforcement: block
+
+  - id: POL-002
+    name: "All PHI endpoints require authentication"
+    description: "Endpoints handling patient data must have auth middleware"
+    check: code_pattern
+    pattern: "@router\\.(get|post|put|delete).*patient|vital|device"
+    requires_pattern: "Depends.*get_current_user|verify_token"
+    enforcement: warn
+
+  - id: POL-003
+    name: "Encryption required for PHI storage"
+    description: "Any function writing patient data must use encryption service"
+    check: code_pattern
+    pattern: "def.*(create|update|save).*(patient|vital|device)"
+    requires_pattern: "encrypt|cipher"
+    enforcement: block
+
+  - id: POL-004
+    name: "Audit logging on data mutations"
+    description: "All create/update/delete operations must emit audit events"
+    check: code_pattern
+    pattern: "def.*(create|update|delete).*(patient|vital|device)"
+    requires_pattern: "audit_log|log_event"
+    enforcement: warn
+
+  - id: POL-005
+    name: "No secrets in source code"
+    description: "Credentials and API keys must come from environment, not source"
+    check: secrets_scan
+    enforcement: block
+
+  - id: POL-006
+    name: "Vital signs must be clinically validated"
+    description: "Heart rate, blood pressure, SpO2, temperature must be range-checked"
+    check: code_pattern
+    pattern: "def.*(ingest|record|store).*vital"
+    requires_pattern: "validate|check_range|clinical_range"
+    enforcement: block

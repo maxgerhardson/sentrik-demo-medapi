@@ -1,0 +1,73 @@
+# =============================================================================
+# Sentrik Configuration — VitalSync Medical API
+# =============================================================================
+# Multi-framework compliance scanning for a regulated medical device API.
+# Covers IEC 62304, HIPAA, OWASP Top 10, and SOC2.
+# =============================================================================
+
+# Output
+output_dir: out
+reporters:
+  - html
+  - sarif
+  - junit
+  - csv
+
+# Standards packs — multi-framework compliance
+standards_packs:
+  - fda-iec-62304
+  - owasp-top-10
+  - hipaa
+  - soc2
+
+# Scan settings
+scan_exclude:
+  - "**/__pycache__/**"
+  - "**/node_modules/**"
+  - "**/.git/**"
+  - "**/out/**"
+  - "**/.venv/**"
+  - "**/recordings/**"
+  - "**/docs/**"
+
+# Gate thresholds
+gate_fail_on:
+  - critical
+  - high
+
+# DevOps integration — GitHub
+devops_provider: github
+github_owner: maxgerhardson
+github_repo: sentrik-demo-medapi
+
+# Governance
+governance:
+  profile: standard
+  human_review_required:
+    - on_critical_finding
+    - on_requirement_change
+  auto_patch:
+    enabled: true
+    max_severity: low
+  gate:
+    fail_on:
+      - critical
+      - high
+    block_merge_on_obligations: false
+  audit:
+    enabled: true
+    log_file: out/agent_audit.jsonl
+
+# Requirements traceability
+requirement_coverage_enabled: true
+
+# Performance
+parallel_scan: false
+cache_enabled: true
+cache_dir: .guard_cache
+
+# Severity rescoring (will enable in Phase 2 to show before/after)
+severity_rescoring_enabled: false
+
+# Confidence scoring
+confidence_scoring_enabled: false

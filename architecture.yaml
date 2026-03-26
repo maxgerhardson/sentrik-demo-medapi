@@ -1,0 +1,99 @@
+# =============================================================================
+# VitalSync Medical API — Architecture Rules
+# =============================================================================
+# These rules enforce the layered architecture of the application.
+# Sentrik validates these via `sentrik check-arch`.
+#
+# Architecture:
+#   api/routes/ → services/ → db/repositories/
+#   api/middleware/ → services/ (cross-cutting concerns)
+#   models/ (shared data structures, no business logic)
+#   utils/ (shared utilities, no business logic)
+#
+# Forbidden:
+#   - Routes must NOT import directly from db/repositories/
+#   - Repositories must NOT import from api/
+#   - Services must NOT import from api/routes/
+# =============================================================================
+
+layers:
+  - name: api
+    paths:
+      - "src/api/routes/**"
+      - "src/api/middleware/**"
+      - "src/api/dependencies.py"
+    allowed_imports:
+      - "src/services/**"
+      - "src/models/**"
+      - "src/utils/**"
+    forbidden_imports:
+      - "src/db/**"
+
+  - name: services
+    paths:
+      - "src/services/**"
+    allowed_imports:
+      - "src/db/repositories/**"
+      - "src/models/**"
+      - "src/utils/**"
+    forbidden_imports:
+      - "src/api/**"
+
+  - name: db
+    paths:
+      - "src/db/**"
+    allowed_imports:
+      - "src/models/**"
+      - "src/utils/**"
+    forbidden_imports:
+      - "src/api/**"
+      - "src/services/**"
+
+  - name: models
+    paths:
+      - "src/models/**"
+    allowed_imports:
+      - "src/utils/**"
+    forbidden_imports:
+      - "src/api/**"
+      - "src/services/**"
+      - "src/db/**"
+
+  - name: utils
+    paths:
+      - "src/utils/**"
+    allowed_imports: []
+    forbidden_imports:
+      - "src/api/**"
+      - "src/services/**"
+      - "src/db/**"
+      - "src/models/**"
+
+rules:
+  - id: ARCH-001
+    description: "API routes must not access the database directly"
+    check: "no_import"
+    from: "src/api/routes/**"
+    to: "src/db/**"
+    severity: high
+
+  - id: ARCH-002
+    description: "Database layer must not depend on API layer"
+    check: "no_import"
+    from: "src/db/**"
+    to: "src/api/**"
+    severity: high
+
+  - id: ARCH-003
+    description: "Services must not depend on API routes"
+    check: "no_import"
+    from: "src/services/**"
+    to: "src/api/routes/**"
+    severity: high
+
+  - id: ARCH-004
+    description: "Models must be pure data structures with no business dependencies"
+    check: "no_import"
+    from: "src/models/**"
+    to: "src/services/**"
+    severity: medium

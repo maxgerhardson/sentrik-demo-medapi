@@ -1,0 +1,104 @@
+name: Sentrik Compliance Gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  statuses: write
+  security-events: write
+
+jobs:
+  compliance-gate:
+    name: Sentrik Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for git-range
+
+      - name: Install Sentrik
+        run: npm install -g sentrik
+
+      - name: Run Sentrik Scan
+        run: sentrik scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Sentrik Gate
+        if: github.event_name == 'pull_request'
+        run: |
+          sentrik gate \
+            --git-range "origin/${{ github.base_ref }}...HEAD" \
+            --decorate-pr \
+            --status-check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GUARD_GITHUB_OWNER: ${{ github.repository_owner }}
+          GUARD_GITHUB_REPO: ${{ github.event.repository.name }}
+
+      - name: Run Sentrik Gate (push)
+        if: github.event_name == 'push'
+        run: sentrik gate
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload SARIF to Code Scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: out/findings.sarif.json
+        continue-on-error: true
+
+      - name: Upload HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sentrik-report
+          path: |
+            out/*.html
+            out/findings.json
+            out/scan_metrics.json
+
+      - name: Upload JUnit Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sentrik-junit
+          path: out/findings.junit.xml
+
+  supply-chain:
+    name: Supply Chain Security
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Sentrik
+        run: npm install -g sentrik
+
+      - name: SBOM Generation
+        run: sentrik sbom
+
+      - name: Vulnerability Scan
+        run: sentrik vulns
+
+      - name: License Compliance
+        run: sentrik licenses
+
+      - name: Secrets Scan
+        run: sentrik secrets
+
+      - name: Upload SBOM
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: out/sbom.*
