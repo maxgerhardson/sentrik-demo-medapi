@@ -180,7 +180,7 @@ def record_01():
 
     events.append([round(t, 3), "o",
         "\r\n\x1b[1;31m1,589 findings. Gate FAILED. 3 secrets. 19 CVEs. Nesting depth 14.\x1b[0m\r\n"
-        "\x1b[90mNext: see how we fix this -> recording 02\x1b[0m\r\n"])
+        "\x1b[90mNext: Fix & Gate \u2192 see how we resolve every finding\x1b[0m\r\n"])
     t += 3.0
     write_cast("01-init-and-scan.cast", "Sentrik: Init & First Scan (FAILING)", events)
 
@@ -270,17 +270,18 @@ def record_02():
     t += 2.0
 
     events.append([round(t, 3), "o",
-        "\r\n\x1b[1;32m49.7% -> 100%. 1,558 findings resolved. Gate: PASSED.\x1b[0m\r\n"])
+        "\r\n\x1b[1;32m49.7% -> 100%. 1,558 findings resolved. Gate: PASSED.\x1b[0m\r\n"
+        "\x1b[90mNext: Dependencies & CVEs \u2192 find and fix vulnerable packages\x1b[0m\r\n"])
     t += 3.0
     write_cast("02-fix-and-gate.cast", "Sentrik: Fix Findings & Pass Gate", events)
 
 
 def record_03():
-    """Supply chain - CVEs, SBOM, licenses."""
+    """Dependencies & CVEs - SBOM, vulnerability scanning, auto-fix, licenses."""
     events = []
     t = add_title(events, 0.5,
-        "Sentrik Demo: Supply Chain Security",
-        "SBOM generation, CVE scanning, auto-fix, license compliance")
+        "Sentrik Demo: Dependencies & CVEs",
+        "SBOM generation, vulnerability scanning, auto-fix, license compliance")
 
     t = add_section(events, t, "SBOM: What dependencies do we have?")
     t = type_cmd(events, t, "sentrik sbom")
@@ -351,9 +352,10 @@ def record_03():
     t += 2.0
 
     events.append([round(t, 3), "o",
-        "\r\n\x1b[1;32m19 CVEs -> 1. Auto-fixed in one command. All licenses clean.\x1b[0m\r\n"])
+        "\r\n\x1b[1;32m19 CVEs -> 1. Auto-fixed in one command. All licenses clean.\x1b[0m\r\n"
+        "\x1b[90mNext: Reports & Evidence \u2192 generate compliance artifacts for auditors\x1b[0m\r\n"])
     t += 3.0
-    write_cast("03-supply-chain.cast", "Sentrik: Supply Chain Security", events)
+    write_cast("03-supply-chain.cast", "Sentrik: Dependencies & CVEs", events)
 
 
 def record_04():
@@ -415,7 +417,8 @@ def record_04():
     t += 2.0
 
     events.append([round(t, 3), "o",
-        "\r\n\x1b[1;32mFull compliance evidence generated. 20 work items created.\x1b[0m\r\n"])
+        "\r\n\x1b[1;32mFull compliance evidence generated. 20 work items created.\x1b[0m\r\n"
+        "\x1b[90mSee Full Lifecycle \u2192 the complete journey in one recording\x1b[0m\r\n"])
     t += 3.0
     write_cast("04-compliance.cast", "Sentrik: Compliance Reports & Evidence", events)
 

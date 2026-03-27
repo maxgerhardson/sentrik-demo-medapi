@@ -1,4 +1,4 @@
-{"version": 2, "width": 120, "height": 40, "timestamp": 1774619173, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}, "title": "Sentrik: Init & First Scan (FAILING)"}
+{"version": 2, "width": 120, "height": 40, "timestamp": 1774623268, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}, "title": "Sentrik: Init & First Scan (FAILING)"}
 [0.5, "o", "\u001b[1;36m# Sentrik Demo: Init & First Scan\u001b[0m\r\n"]
 [0.6, "o", "\u001b[90m# VitalSync Medical API - discovering compliance gaps\u001b[0m\r\n"]
 [2.0, "o", "\r\n\u001b[1;33m============================================================\u001b[0m\r\n\u001b[1;33m  STEP 1: What packs are available?\u001b[0m\r\n\u001b[1;33m============================================================\u001b[0m\r\n\r\n"]
@@ -147,4 +147,4 @@
 [17.79, "o", "  +-----------------------------------------------------------+\r\n"]
 [17.805, "o", "\r\n"]
 [17.82, "o", "  48 files | 2,003 lines of code | 117 functions | \u001b[31mmax nesting: 14\u001b[0m\r\n"]
-[19.335, "o", "\r\n\u001b[1;31m1,589 findings. Gate FAILED. 3 secrets. 19 CVEs. Nesting depth 14.\u001b[0m\r\n\u001b[90mNext: see how we fix this -> recording 02\u001b[0m\r\n"]
+[19.335, "o", "\r\n\u001b[1;31m1,589 findings. Gate FAILED. 3 secrets. 19 CVEs. Nesting depth 14.\u001b[0m\r\n\u001b[90mNext: Fix & Gate → see how we resolve every finding\u001b[0m\r\n"]

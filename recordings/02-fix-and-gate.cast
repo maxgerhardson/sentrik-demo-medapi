@@ -1,4 +1,4 @@
-{"version": 2, "width": 120, "height": 40, "timestamp": 1774619173, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}, "title": "Sentrik: Fix Findings & Pass Gate"}
+{"version": 2, "width": 120, "height": 40, "timestamp": 1774623268, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}, "title": "Sentrik: Fix Findings & Pass Gate"}
 [0.5, "o", "\u001b[1;36m# Sentrik Demo: Fix Findings & Pass Gate\u001b[0m\r\n"]
 [0.6, "o", "\u001b[90m# From 1,558 high findings to 100% compliance\u001b[0m\r\n"]
 [2.0, "o", "\r\n\u001b[1;33m============================================================\u001b[0m\r\n\u001b[1;33m  BEFORE: 1,558 high findings, gate FAILED\u001b[0m\r\n\u001b[1;33m============================================================\u001b[0m\r\n\r\n"]
@@ -306,4 +306,4 @@
 [29.66, "o", "  \u001b[1;32m+-------------------------------------------+\u001b[0m\r\n"]
 [29.675, "o", "\r\n"]
 [29.69, "o", "  Gate passed! Ready to commit.\r\n"]
-[31.705, "o", "\r\n\u001b[1;32m49.7% -> 100%. 1,558 findings resolved. Gate: PASSED.\u001b[0m\r\n"]
+[31.705, "o", "\r\n\u001b[1;32m49.7% -> 100%. 1,558 findings resolved. Gate: PASSED.\u001b[0m\r\n\u001b[90mNext: Dependencies & CVEs → find and fix vulnerable packages\u001b[0m\r\n"]
