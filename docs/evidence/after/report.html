@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Guard Scan Report</title>
+<style>
+  :root { --text-color: #333; --bg-color: #fff; --border-color: #eee;
+           --code-bg: #f0f0f0; --th-bg: #f5f5f5; }
+  @media (prefers-color-scheme: dark) {
+    :root { --text-color: #e2e8f0; --bg-color: #0f172a; --border-color: #334155;
+             --code-bg: #1e293b; --th-bg: #1e293b; }
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: var(--text-color);
+         background: var(--bg-color); }
+  h1 { border-bottom: 2px solid var(--border-color); padding-bottom: .5rem; }
+  .badge { display: inline-block; padding: 4px 10px; border-radius: 4px;
+            color: #fff; font-weight: 600; font-size: 0.85rem; }
+  .executive-summary { display: flex; align-items: center; gap: 24px; margin: 1rem 0; }
+  .donut { flex-shrink: 0; }
+  .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin: 1rem 0; }
+  .filter-btn { border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer;
+                 font-size: 0.8rem; font-weight: 600; opacity: 1; transition: opacity 0.2s; }
+  .filter-btn:not(.active) { opacity: 0.3; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border-color); }
+  th { background: var(--th-bg); }
+  .sortable { cursor: pointer; user-select: none; }
+  .sortable:hover { text-decoration: underline; }
+  code { background: var(--code-bg); padding: 2px 4px; border-radius: 3px; font-size: 0.85em; }
+  em { color: #666; }
+  .expandable-row { cursor: pointer; }
+  .expandable-row:hover { background: var(--code-bg); }
+  .detail-row { display: none; }
+  .detail-row.open { display: table-row; }
+  .detail-content { padding: 8px; font-size: 0.85rem; color: var(--text-color); opacity: 0.8; }
+  .search-box { margin: 1rem 0; }
+  .search-box input { width: 100%; padding: 8px 12px; border: 1px solid var(--border-color);
+                       border-radius: 6px; font-size: 0.9rem; background: var(--bg-color);
+                       color: var(--text-color); }
+  .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);
+             font-size: 0.75rem; color: #999; }
+  @media print {
+    .filter-bar, .search-box { display: none; }
+    body { color: #000; background: #fff; }
+    .detail-row.open { display: table-row; }
+  }
+</style>
+</head>
+<body>
+<h1>Guard Scan Report</h1>
+<div class="executive-summary">
+  
+  <div class="compliance-score" style="text-align:center;min-width:120px"><div style="font-size:2rem;font-weight:700;color:#4caf50">100.0%</div><div style="font-size:0.85rem;color:var(--text-color);opacity:0.8">155 of 155 rules passed</div><div style="font-size:0.75rem;color:var(--text-color);opacity:0.6">0 failed</div></div>
+  <div><p><strong>Total findings:</strong> 0</p><p>No findings</p></div>
+</div>
+
+<div class="search-box"><input type="text" placeholder="Filter findings..." oninput="filterFindings(this.value)"></div>
+<h2>Compliance Obligations</h2>
+<h3>IEC 62304</h3>
+<table><thead><tr><th>Rule ID</th><th>Clause</th><th>Message</th><th>Remediation</th></tr></thead><tbody><tr><td><code>IEC62304-5.1.1</code></td><td>5.1.1</td><td>software-development-plan: A Software Development Plan must be established and maintained</td><td>Create and maintain a Software Development Plan covering lifecycle activities, deliverables, and traceability</td></tr><tr><td><code>IEC62304-5.1.6</code></td><td>5.1.6</td><td>software-verification-plan: A Software Verification Plan must define verification activities and acceptance criteria</td><td>Document verification strategy including unit tests, integration tests, and acceptance criteria</td></tr><tr><td><code>IEC62304-5.2.1</code></td><td>5.2.1</td><td>software-requirements-specification: Software requirements must be documented and traceable to system requirements</td><td>Create a Software Requirements Specification (SRS) with traceable requirements</td></tr><tr><td><code>IEC62304-5.3.1</code></td><td>5.3.1</td><td>architecture-documentation: Software architecture must be documented showing subdivision into software items</td><td>Document software architecture with component diagrams and interface descriptions</td></tr><tr><td><code>IEC62304-5.4.1</code></td><td>5.4.1</td><td>detailed-design: Detailed design documentation is required for Class C software items</td><td>Create detailed design documents for each software unit including algorithms and data structures</td></tr><tr><td><code>IEC62304-6.1</code></td><td>6.1</td><td>maintenance-plan: A Software Maintenance Plan must be established</td><td>Establish a maintenance plan covering feedback handling, modification analysis, and release procedures</td></tr><tr><td><code>IEC62304-7.1.1</code></td><td>7.1.1</td><td>risk-analysis: Software risk analysis per ISO 14971 must be performed and documented</td><td>Perform and document risk analysis in accordance with ISO 14971, including hazard identification and risk control</td></tr><tr><td><code>IEC62304-8.1.1</code></td><td>8.1.1</td><td>configuration-management: A Configuration Management system must be established for all software items</td><td>Implement configuration management covering version control, change control, and baseline identification</td></tr></tbody></table>
+<h3>OWASP Top 10</h3>
+<table><thead><tr><th>Rule ID</th><th>Clause</th><th>Message</th><th>Remediation</th></tr></thead><tbody><tr><td><code>OWASP-A04-001</code></td><td>A04:2021</td><td>threat-model: A threat model must be created and maintained for the application</td><td>Create a threat model document identifying assets, trust boundaries, threat actors, and mitigations (STRIDE or similar methodology)</td></tr><tr><td><code>OWASP-A04-002</code></td><td>A04:2021</td><td>secure-design-review: Security design reviews must be conducted for significant changes</td><td>Establish a security design review process for new features, architectural changes, and third-party integrations</td></tr><tr><td><code>OWASP-A06-001</code></td><td>A06:2021</td><td>dependency-management: Dependencies must be tracked and regularly updated for security patches</td><td>Maintain a software bill of materials (SBOM), run dependency vulnerability scans (pip-audit, safety), and establish a patching cadence</td></tr><tr><td><code>OWASP-A09-001</code></td><td>A09:2021</td><td>security-logging-policy: Security-relevant events must be logged with sufficient detail</td><td>Define a security logging policy covering authentication events, access control failures, input validation failures, and administrative actions</td></tr><tr><td><code>OWASP-A09-002</code></td><td>A09:2021</td><td>incident-response-plan: An incident response plan must be established and tested</td><td>Create an incident response plan with detection, containment, eradication, recovery, and post-incident review procedures</td></tr></tbody></table>
+<h3>HIPAA</h3>
+<table><thead><tr><th>Rule ID</th><th>Clause</th><th>Message</th><th>Remediation</th></tr></thead><tbody><tr><td><code>HIPAA-164.308-a1</code></td><td>164.308(a)(1)</td><td>risk-analysis: A risk analysis must identify threats and vulnerabilities to ePHI</td><td>Conduct and document a comprehensive risk analysis identifying threats, vulnerabilities, and likelihood of impact to ePHI</td></tr><tr><td><code>HIPAA-164.308-a3</code></td><td>164.308(a)(3)</td><td>workforce-security-policy: Policies must ensure workforce members have appropriate access to ePHI</td><td>Document workforce security procedures including authorization, supervision, clearance, and termination procedures for ePHI access</td></tr><tr><td><code>HIPAA-164.308-a4</code></td><td>164.308(a)(4)</td><td>information-access-management: Access to ePHI must be managed based on role and minimum necessary standard</td><td>Document access authorization policies implementing the minimum necessary standard for ePHI access</td></tr><tr><td><code>HIPAA-164.308-a5</code></td><td>164.308(a)(5)</td><td>security-awareness-training: Security awareness and training program must be established for all workforce members</td><td>Establish a security awareness training program covering password management, log-in monitoring, and malicious software protection</td></tr><tr><td><code>HIPAA-164.308-a6</code></td><td>164.308(a)(6)</td><td>security-incident-procedures: Procedures for identifying, responding to, and mitigating security incidents must be documented</td><td>Document security incident response procedures including identification, response, mitigation, and documentation of incidents and outcomes</td></tr><tr><td><code>HIPAA-164.308-a7</code></td><td>164.308(a)(7)</td><td>contingency-plan: A contingency plan must address data backup, disaster recovery, and emergency operations</td><td>Document contingency plan including data backup plan, disaster recovery plan, emergency mode operation plan, and testing procedures</td></tr><tr><td><code>HIPAA-164.310-a1</code></td><td>164.310(a)(1)</td><td>facility-access-controls: Policies must limit physical access to electronic information systems and facilities</td><td>Document facility access controls including contingency operations, facility security plan, access control and validation, and maintenance records</td></tr><tr><td><code>HIPAA-164.314-a1</code></td><td>164.314(a)(1)</td><td>business-associate-agreements: Business Associate Agreements must be in place with all entities that handle ePHI</td><td>Ensure Business Associate Agreements are executed with all vendors, subcontractors, and partners who create, receive, maintain, or transmit ePHI</td></tr><tr><td><code>HIPAA-164.316-b1</code></td><td>164.316(b)(1)</td><td>documentation-retention-policy: HIPAA-required documentation must be retained for at least six years</td><td>Establish a documentation retention policy ensuring all HIPAA-required policies, procedures, and records are retained for a minimum of six years</td></tr></tbody></table>
+<h3>SOC2</h3>
+<table><thead><tr><th>Rule ID</th><th>Clause</th><th>Message</th><th>Remediation</th></tr></thead><tbody><tr><td><code>SOC2-CC6-003</code></td><td>CC6.1</td><td>access-control-policy: An access control policy must define roles, permissions, and provisioning procedures</td><td>Document access control policies including role definitions, least-privilege principle, access reviews, and deprovisioning procedures</td></tr><tr><td><code>SOC2-CC6-004</code></td><td>CC6.3</td><td>access-review-process: Periodic access reviews must be conducted to verify appropriate permissions</td><td>Establish quarterly access reviews for all systems, documenting reviewer, date, and actions taken</td></tr><tr><td><code>SOC2-CC7-003</code></td><td>CC7.2</td><td>monitoring-and-alerting: System monitoring and alerting must be implemented for security events</td><td>Document monitoring strategy including alert thresholds, escalation procedures, and on-call rotation</td></tr><tr><td><code>SOC2-CC7-004</code></td><td>CC7.3</td><td>incident-response-plan: An incident response plan must be documented and tested</td><td>Create and annually test an incident response plan covering detection, analysis, containment, eradication, and recovery</td></tr><tr><td><code>SOC2-CC8-001</code></td><td>CC8.1</td><td>change-management-policy: A change management policy must govern all production changes</td><td>Document change management procedures including change request, approval, testing, deployment, and rollback steps</td></tr><tr><td><code>SOC2-CC9-001</code></td><td>CC9.1</td><td>risk-assessment: Regular risk assessments must identify and evaluate operational and security risks</td><td>Conduct and document annual risk assessments covering operational, security, and compliance risks with mitigation plans</td></tr><tr><td><code>SOC2-A1-001</code></td><td>A1.2</td><td>availability-plan: A business continuity and disaster recovery plan must be documented</td><td>Document BCP/DR plans including RTOs, RPOs, backup procedures, failover testing, and recovery procedures</td></tr><tr><td><code>SOC2-C1-002</code></td><td>C1.1</td><td>data-classification-policy: A data classification policy must define sensitivity levels and handling procedures</td><td>Define data classification levels (public, internal, confidential, restricted) with handling, storage, and disposal requirements for each</td></tr><tr><td><code>SOC2-C1-003</code></td><td>C1.2</td><td>encryption-policy: Encryption standards must be defined for data at rest and in transit</td><td>Document encryption requirements specifying algorithms, key lengths, key management, and certificate lifecycle for data at rest and in transit</td></tr></tbody></table>
+<div class="footer">Guard v1.1.0 | 2026-03-27 13:37 UTC</div>
+<script>
+function toggleFilter(btn) {
+  btn.classList.toggle('active');
+  var sev = btn.dataset.sev;
+  var sections = document.querySelectorAll('.sev-section[data-sev="'+sev+'"]');
+  sections.forEach(function(s) { s.style.display = btn.classList.contains('active') ? '' : 'none'; });
+}
+function filterFindings(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('tbody tr.expandable-row').forEach(function(row) {
+    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    if (row.nextElementSibling && row.nextElementSibling.classList.contains('detail-row'))
+      row.nextElementSibling.style.display = 'none';
+  });
+}
+function sortTable(th, col) {
+  var table = th.closest('table');
+  var tbody = table.querySelector('tbody');
+  var rows = Array.from(tbody.querySelectorAll('tr.expandable-row'));
+  var asc = th.dataset.asc !== 'true';
+  th.dataset.asc = asc;
+  rows.sort(function(a, b) {
+    var va = a.cells[col].textContent;
+    var vb = b.cells[col].textContent;
+    return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+  });
+  rows.forEach(function(row) {
+    var detail = row.nextElementSibling;
+    tbody.appendChild(row);
+    if (detail && detail.classList.contains('detail-row')) tbody.appendChild(detail);
+  });
+}
+</script>
+</body>
+</html>

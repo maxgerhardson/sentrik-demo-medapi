@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sentrik Demo — Before vs After Compliance Evidence</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; }
+    .header { background: linear-gradient(135deg, #1e293b, #0f172a); padding: 2rem; text-align: center; border-bottom: 2px solid #334155; }
+    .header h1 { color: #38bdf8; font-size: 2rem; }
+    .header p { color: #94a3b8; margin-top: 0.5rem; }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+    .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+    .card { background: #1e293b; border-radius: 12px; padding: 1.5rem; border: 1px solid #334155; }
+    .card.before { border-left: 4px solid #ef4444; }
+    .card.after { border-left: 4px solid #22c55e; }
+    .card h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+    .card.before h2 { color: #ef4444; }
+    .card.after h2 { color: #22c55e; }
+    .metric { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #334155; }
+    .metric:last-child { border-bottom: none; }
+    .metric .label { color: #94a3b8; }
+    .metric .value { font-weight: 700; }
+    .metric .value.bad { color: #ef4444; }
+    .metric .value.good { color: #22c55e; }
+    .metric .value.warn { color: #f59e0b; }
+    .reports { margin-top: 2rem; }
+    .reports h2 { color: #38bdf8; font-size: 1.5rem; margin-bottom: 1rem; }
+    .report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .report-link { display: block; background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 1rem; text-decoration: none; color: #e2e8f0; transition: border-color 0.2s; }
+    .report-link:hover { border-color: #38bdf8; }
+    .report-link .title { font-weight: 600; }
+    .report-link .desc { color: #94a3b8; font-size: 0.85rem; margin-top: 0.3rem; }
+    .report-link.before .tag { background: #7f1d1d; color: #fca5a5; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+    .report-link.after .tag { background: #14532d; color: #86efac; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+    .arrow { text-align: center; font-size: 3rem; color: #38bdf8; padding: 1rem; }
+    .timeline { margin-top: 3rem; }
+    .timeline h2 { color: #38bdf8; font-size: 1.5rem; margin-bottom: 1rem; }
+    .event { display: flex; gap: 1rem; padding: 0.75rem 0; border-left: 2px solid #334155; padding-left: 1rem; margin-left: 1rem; }
+    .event .time { color: #64748b; font-size: 0.85rem; min-width: 80px; }
+    .event .desc { color: #e2e8f0; }
+    .event.fail { border-left-color: #ef4444; }
+    .event.fix { border-left-color: #f59e0b; }
+    .event.pass { border-left-color: #22c55e; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>VitalSync Medical API — Compliance Evidence</h1>
+    <p>Before vs After: How Sentrik transformed a non-compliant codebase into a fully governed medical device API</p>
+  </div>
+
+  <div class="container">
+    <div class="summary">
+      <div class="card before">
+        <h2>Before (v0.1-requirements)</h2>
+        <div class="metric"><span class="label">Compliance Score</span><span class="value bad">49.7%</span></div>
+        <div class="metric"><span class="label">Gate Status</span><span class="value bad">FAILED</span></div>
+        <div class="metric"><span class="label">High Findings</span><span class="value bad">1,558</span></div>
+        <div class="metric"><span class="label">Info Findings</span><span class="value warn">31</span></div>
+        <div class="metric"><span class="label">Secrets Exposed</span><span class="value bad">3 (1 critical, 2 high)</span></div>
+        <div class="metric"><span class="label">Vulnerable Dependencies</span><span class="value bad">19 CVEs (1 critical, 5 high)</span></div>
+        <div class="metric"><span class="label">Traceability</span><span class="value bad">0% — no requirement links</span></div>
+        <div class="metric"><span class="label">Audit Trail</span><span class="value bad">None</span></div>
+      </div>
+
+      <div class="card after">
+        <h2>After (v1.1-hardened)</h2>
+        <div class="metric"><span class="label">Compliance Score</span><span class="value good">100%</span></div>
+        <div class="metric"><span class="label">Gate Status</span><span class="value good">PASSED</span></div>
+        <div class="metric"><span class="label">High Findings</span><span class="value good">0</span></div>
+        <div class="metric"><span class="label">Info Findings</span><span class="value warn">31 (tracked as GitHub Issues)</span></div>
+        <div class="metric"><span class="label">Secrets Exposed</span><span class="value warn">3 (pre-existing, tracked)</span></div>
+        <div class="metric"><span class="label">Vulnerable Dependencies</span><span class="value good">1 CVE (medium, no fix available)</span></div>
+        <div class="metric"><span class="label">Traceability</span><span class="value good">100% — all 41 files linked to requirements</span></div>
+        <div class="metric"><span class="label">Audit Trail</span><span class="value good">Full — HMAC-signed audit log</span></div>
+      </div>
+    </div>
+
+    <div class="reports">
+      <h2>Compliance Reports — Before</h2>
+      <div class="report-grid">
+        <a class="report-link before" href="before/compliance-report-iec-62304.html">
+          <span class="tag">BEFORE</span>
+          <div class="title">IEC 62304 — 1,558 findings</div>
+          <div class="desc">Medical device software lifecycle compliance. Traceability violations across all files.</div>
+        </a>
+        <a class="report-link before" href="before/compliance-report-hipaa.html">
+          <span class="tag">BEFORE</span>
+          <div class="title">HIPAA — 9 obligations unmet</div>
+          <div class="desc">PHI protection assessment. Documentation obligations pending.</div>
+        </a>
+        <a class="report-link before" href="before/compliance-report-owasp-top-10.html">
+          <span class="tag">BEFORE</span>
+          <div class="title">OWASP Top 10 — 5 obligations unmet</div>
+          <div class="desc">Application security assessment. Threat model and logging gaps.</div>
+        </a>
+        <a class="report-link before" href="before/compliance-report-soc2.html">
+          <span class="tag">BEFORE</span>
+          <div class="title">SOC2 — 9 obligations unmet</div>
+          <div class="desc">Trust services criteria. Change management and access control gaps.</div>
+        </a>
+        <a class="report-link before" href="before/report.html">
+          <span class="tag">BEFORE</span>
+          <div class="title">Full Scan Report — 1,589 findings</div>
+          <div class="desc">Complete HTML report with all findings, severity breakdown, and top files.</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="reports" style="margin-top: 2rem;">
+      <h2>Compliance Reports — After</h2>
+      <div class="report-grid">
+        <a class="report-link after" href="after/compliance-report-iec-62304.html">
+          <span class="tag">AFTER</span>
+          <div class="title">IEC 62304 — 0 code findings</div>
+          <div class="desc">All traceability requirements met. 8 documentation obligations tracked.</div>
+        </a>
+        <a class="report-link after" href="after/compliance-report-hipaa.html">
+          <span class="tag">AFTER</span>
+          <div class="title">HIPAA — 0 code findings</div>
+          <div class="desc">PHI protection controls verified. 9 documentation obligations tracked.</div>
+        </a>
+        <a class="report-link after" href="after/compliance-report-owasp-top-10.html">
+          <span class="tag">AFTER</span>
+          <div class="title">OWASP Top 10 — 0 code findings</div>
+          <div class="desc">Application security verified. 5 documentation obligations tracked.</div>
+        </a>
+        <a class="report-link after" href="after/compliance-report-soc2.html">
+          <span class="tag">AFTER</span>
+          <div class="title">SOC2 — 0 code findings</div>
+          <div class="desc">Trust services criteria met. 9 documentation obligations tracked.</div>
+        </a>
+        <a class="report-link after" href="after/report.html">
+          <span class="tag">AFTER</span>
+          <div class="title">Full Scan Report — 31 info findings</div>
+          <div class="desc">Clean report with only documentation obligations remaining.</div>
+        </a>
+        <a class="report-link after" href="after/trust-center.html">
+          <span class="tag">AFTER</span>
+          <div class="title">Trust Center — VitalSync Medical</div>
+          <div class="desc">Public-safe compliance page for customers and partners.</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <h2>Audit Trail</h2>
+      <div class="event fail">
+        <span class="time">Scan #1</span>
+        <span class="desc"><strong>Initial scan:</strong> 1,589 findings (1,558 high, 31 info). Compliance: 49.7%. Gate: FAILED.</span>
+      </div>
+      <div class="event fail">
+        <span class="time">Secrets</span>
+        <span class="desc"><strong>Secrets scan:</strong> 3 hardcoded credentials found — DB password, API key, connection string.</span>
+      </div>
+      <div class="event fail">
+        <span class="time">Vulns</span>
+        <span class="desc"><strong>Vulnerability scan:</strong> 19 CVEs across 5 packages — 1 critical (python-jose), 5 high, 6 medium, 7 low.</span>
+      </div>
+      <div class="event fix">
+        <span class="time">PR #13</span>
+        <span class="desc"><strong>Fix: Traceability headers</strong> — Added REQUIREMENT comments to all 41 source files. Created suppressions.yaml. 1,558 findings resolved.</span>
+      </div>
+      <div class="event pass">
+        <span class="time">Scan #2</span>
+        <span class="desc"><strong>Post-fix scan:</strong> 31 findings (all info). Compliance: 100%. Gate: PASSED.</span>
+      </div>
+      <div class="event fix">
+        <span class="time">PR #14</span>
+        <span class="desc"><strong>Fix: Supply chain</strong> — sentrik vulns --fix auto-patched 4 packages. 18 of 19 CVEs resolved.</span>
+      </div>
+      <div class="event pass">
+        <span class="time">Scan #3</span>
+        <span class="desc"><strong>Final scan:</strong> 31 info findings. 1 remaining CVE (medium, no fix). Gate: PASSED. ASPM score: 87.4.</span>
+      </div>
+      <div class="event pass">
+        <span class="time">Reconcile</span>
+        <span class="desc"><strong>DevOps sync:</strong> 20 GitHub Issues auto-created from documentation obligations. Full traceability established.</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

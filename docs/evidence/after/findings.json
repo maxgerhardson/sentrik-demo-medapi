@@ -1,0 +1,782 @@
+[
+  {
+    "finding_id": "IEC62304-5.1.1-obligation",
+    "rule_id": "IEC62304-5.1.1",
+    "severity": "info",
+    "message": "software-development-plan: A Software Development Plan must be established and maintained",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Create and maintain a Software Development Plan covering lifecycle activities, deliverables, and traceability",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "5.1.1",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Create and maintain a Software Development Plan covering lifecycle activities, deliverables, and traceability",
+    "tags": [
+      "fda",
+      "class-A",
+      "class-B",
+      "class-C"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "IEC62304-5.1.6-obligation",
+    "rule_id": "IEC62304-5.1.6",
+    "severity": "info",
+    "message": "software-verification-plan: A Software Verification Plan must define verification activities and acceptance criteria",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document verification strategy including unit tests, integration tests, and acceptance criteria",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "5.1.6",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document verification strategy including unit tests, integration tests, and acceptance criteria",
+    "tags": [
+      "fda",
+      "class-B",
+      "class-C"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "IEC62304-5.2.1-obligation",
+    "rule_id": "IEC62304-5.2.1",
+    "severity": "info",
+    "message": "software-requirements-specification: Software requirements must be documented and traceable to system requirements",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Create a Software Requirements Specification (SRS) with traceable requirements",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "5.2.1",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Create a Software Requirements Specification (SRS) with traceable requirements",
+    "tags": [
+      "fda",
+      "class-A",
+      "class-B",
+      "class-C"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "IEC62304-5.3.1-obligation",
+    "rule_id": "IEC62304-5.3.1",
+    "severity": "info",
+    "message": "architecture-documentation: Software architecture must be documented showing subdivision into software items",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document software architecture with component diagrams and interface descriptions",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "5.3.1",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document software architecture with component diagrams and interface descriptions",
+    "tags": [
+      "fda",
+      "class-B",
+      "class-C"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "IEC62304-5.4.1-obligation",
+    "rule_id": "IEC62304-5.4.1",
+    "severity": "info",
+    "message": "detailed-design: Detailed design documentation is required for Class C software items",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Create detailed design documents for each software unit including algorithms and data structures",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "5.4.1",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Create detailed design documents for each software unit including algorithms and data structures",
+    "tags": [
+      "fda",
+      "class-C"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "IEC62304-6.1-obligation",
+    "rule_id": "IEC62304-6.1",
+    "severity": "info",
+    "message": "maintenance-plan: A Software Maintenance Plan must be established",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Establish a maintenance plan covering feedback handling, modification analysis, and release procedures",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "6.1",
+    "compliance_category": "process",
+    "remediation_guidance": "Establish a maintenance plan covering feedback handling, modification analysis, and release procedures",
+    "tags": [
+      "fda",
+      "class-A",
+      "class-B",
+      "class-C"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "IEC62304-7.1.1-obligation",
+    "rule_id": "IEC62304-7.1.1",
+    "severity": "info",
+    "message": "risk-analysis: Software risk analysis per ISO 14971 must be performed and documented",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Perform and document risk analysis in accordance with ISO 14971, including hazard identification and risk control",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "7.1.1",
+    "compliance_category": "process",
+    "remediation_guidance": "Perform and document risk analysis in accordance with ISO 14971, including hazard identification and risk control",
+    "tags": [
+      "fda",
+      "class-A",
+      "class-B",
+      "class-C",
+      "iso14971"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "IEC62304-8.1.1-obligation",
+    "rule_id": "IEC62304-8.1.1",
+    "severity": "info",
+    "message": "configuration-management: A Configuration Management system must be established for all software items",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Implement configuration management covering version control, change control, and baseline identification",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "IEC 62304",
+    "clause": "8.1.1",
+    "compliance_category": "process",
+    "remediation_guidance": "Implement configuration management covering version control, change control, and baseline identification",
+    "tags": [
+      "fda",
+      "class-A",
+      "class-B",
+      "class-C"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "OWASP-A04-001-obligation",
+    "rule_id": "OWASP-A04-001",
+    "severity": "info",
+    "message": "threat-model: A threat model must be created and maintained for the application",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Create a threat model document identifying assets, trust boundaries, threat actors, and mitigations (STRIDE or similar methodology)",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "OWASP Top 10",
+    "clause": "A04:2021",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Create a threat model document identifying assets, trust boundaries, threat actors, and mitigations (STRIDE or similar methodology)",
+    "tags": [
+      "owasp",
+      "design",
+      "threat-modeling"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "OWASP-A04-002-obligation",
+    "rule_id": "OWASP-A04-002",
+    "severity": "info",
+    "message": "secure-design-review: Security design reviews must be conducted for significant changes",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Establish a security design review process for new features, architectural changes, and third-party integrations",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "OWASP Top 10",
+    "clause": "A04:2021",
+    "compliance_category": "process",
+    "remediation_guidance": "Establish a security design review process for new features, architectural changes, and third-party integrations",
+    "tags": [
+      "owasp",
+      "design",
+      "review"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "OWASP-A06-001-obligation",
+    "rule_id": "OWASP-A06-001",
+    "severity": "info",
+    "message": "dependency-management: Dependencies must be tracked and regularly updated for security patches",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Maintain a software bill of materials (SBOM), run dependency vulnerability scans (pip-audit, safety), and establish a patching cadence",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "OWASP Top 10",
+    "clause": "A06:2021",
+    "compliance_category": "process",
+    "remediation_guidance": "Maintain a software bill of materials (SBOM), run dependency vulnerability scans (pip-audit, safety), and establish a patching cadence",
+    "tags": [
+      "owasp",
+      "dependencies",
+      "supply-chain"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "OWASP-A09-001-obligation",
+    "rule_id": "OWASP-A09-001",
+    "severity": "info",
+    "message": "security-logging-policy: Security-relevant events must be logged with sufficient detail",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Define a security logging policy covering authentication events, access control failures, input validation failures, and administrative actions",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "OWASP Top 10",
+    "clause": "A09:2021",
+    "compliance_category": "process",
+    "remediation_guidance": "Define a security logging policy covering authentication events, access control failures, input validation failures, and administrative actions",
+    "tags": [
+      "owasp",
+      "logging",
+      "monitoring"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "OWASP-A09-002-obligation",
+    "rule_id": "OWASP-A09-002",
+    "severity": "info",
+    "message": "incident-response-plan: An incident response plan must be established and tested",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Create an incident response plan with detection, containment, eradication, recovery, and post-incident review procedures",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "OWASP Top 10",
+    "clause": "A09:2021",
+    "compliance_category": "process",
+    "remediation_guidance": "Create an incident response plan with detection, containment, eradication, recovery, and post-incident review procedures",
+    "tags": [
+      "owasp",
+      "logging",
+      "incident-response"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.308-a1-obligation",
+    "rule_id": "HIPAA-164.308-a1",
+    "severity": "info",
+    "message": "risk-analysis: A risk analysis must identify threats and vulnerabilities to ePHI",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Conduct and document a comprehensive risk analysis identifying threats, vulnerabilities, and likelihood of impact to ePHI",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.308(a)(1)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Conduct and document a comprehensive risk analysis identifying threats, vulnerabilities, and likelihood of impact to ePHI",
+    "tags": [
+      "hipaa",
+      "administrative",
+      "risk"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.308-a3-obligation",
+    "rule_id": "HIPAA-164.308-a3",
+    "severity": "info",
+    "message": "workforce-security-policy: Policies must ensure workforce members have appropriate access to ePHI",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document workforce security procedures including authorization, supervision, clearance, and termination procedures for ePHI access",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.308(a)(3)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document workforce security procedures including authorization, supervision, clearance, and termination procedures for ePHI access",
+    "tags": [
+      "hipaa",
+      "administrative",
+      "workforce"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.308-a4-obligation",
+    "rule_id": "HIPAA-164.308-a4",
+    "severity": "info",
+    "message": "information-access-management: Access to ePHI must be managed based on role and minimum necessary standard",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document access authorization policies implementing the minimum necessary standard for ePHI access",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.308(a)(4)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document access authorization policies implementing the minimum necessary standard for ePHI access",
+    "tags": [
+      "hipaa",
+      "administrative",
+      "access"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.308-a5-obligation",
+    "rule_id": "HIPAA-164.308-a5",
+    "severity": "info",
+    "message": "security-awareness-training: Security awareness and training program must be established for all workforce members",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Establish a security awareness training program covering password management, log-in monitoring, and malicious software protection",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.308(a)(5)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Establish a security awareness training program covering password management, log-in monitoring, and malicious software protection",
+    "tags": [
+      "hipaa",
+      "administrative",
+      "training"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.308-a6-obligation",
+    "rule_id": "HIPAA-164.308-a6",
+    "severity": "info",
+    "message": "security-incident-procedures: Procedures for identifying, responding to, and mitigating security incidents must be documented",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document security incident response procedures including identification, response, mitigation, and documentation of incidents and outcomes",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.308(a)(6)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document security incident response procedures including identification, response, mitigation, and documentation of incidents and outcomes",
+    "tags": [
+      "hipaa",
+      "administrative",
+      "incident-response"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.308-a7-obligation",
+    "rule_id": "HIPAA-164.308-a7",
+    "severity": "info",
+    "message": "contingency-plan: A contingency plan must address data backup, disaster recovery, and emergency operations",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document contingency plan including data backup plan, disaster recovery plan, emergency mode operation plan, and testing procedures",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.308(a)(7)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document contingency plan including data backup plan, disaster recovery plan, emergency mode operation plan, and testing procedures",
+    "tags": [
+      "hipaa",
+      "administrative",
+      "contingency"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.310-a1-obligation",
+    "rule_id": "HIPAA-164.310-a1",
+    "severity": "info",
+    "message": "facility-access-controls: Policies must limit physical access to electronic information systems and facilities",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document facility access controls including contingency operations, facility security plan, access control and validation, and maintenance records",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.310(a)(1)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document facility access controls including contingency operations, facility security plan, access control and validation, and maintenance records",
+    "tags": [
+      "hipaa",
+      "physical",
+      "facility"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.314-a1-obligation",
+    "rule_id": "HIPAA-164.314-a1",
+    "severity": "info",
+    "message": "business-associate-agreements: Business Associate Agreements must be in place with all entities that handle ePHI",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Ensure Business Associate Agreements are executed with all vendors, subcontractors, and partners who create, receive, maintain, or transmit ePHI",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.314(a)(1)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Ensure Business Associate Agreements are executed with all vendors, subcontractors, and partners who create, receive, maintain, or transmit ePHI",
+    "tags": [
+      "hipaa",
+      "organizational",
+      "baa"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "HIPAA-164.316-b1-obligation",
+    "rule_id": "HIPAA-164.316-b1",
+    "severity": "info",
+    "message": "documentation-retention-policy: HIPAA-required documentation must be retained for at least six years",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Establish a documentation retention policy ensuring all HIPAA-required policies, procedures, and records are retained for a minimum of six years",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "HIPAA",
+    "clause": "164.316(b)(1)",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Establish a documentation retention policy ensuring all HIPAA-required policies, procedures, and records are retained for a minimum of six years",
+    "tags": [
+      "hipaa",
+      "documentation",
+      "retention"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-CC6-003-obligation",
+    "rule_id": "SOC2-CC6-003",
+    "severity": "info",
+    "message": "access-control-policy: An access control policy must define roles, permissions, and provisioning procedures",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document access control policies including role definitions, least-privilege principle, access reviews, and deprovisioning procedures",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "CC6.1",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document access control policies including role definitions, least-privilege principle, access reviews, and deprovisioning procedures",
+    "tags": [
+      "soc2",
+      "access-control",
+      "policy"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-CC6-004-obligation",
+    "rule_id": "SOC2-CC6-004",
+    "severity": "info",
+    "message": "access-review-process: Periodic access reviews must be conducted to verify appropriate permissions",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Establish quarterly access reviews for all systems, documenting reviewer, date, and actions taken",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "CC6.3",
+    "compliance_category": "process",
+    "remediation_guidance": "Establish quarterly access reviews for all systems, documenting reviewer, date, and actions taken",
+    "tags": [
+      "soc2",
+      "access-control",
+      "review"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-CC7-003-obligation",
+    "rule_id": "SOC2-CC7-003",
+    "severity": "info",
+    "message": "monitoring-and-alerting: System monitoring and alerting must be implemented for security events",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document monitoring strategy including alert thresholds, escalation procedures, and on-call rotation",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "CC7.2",
+    "compliance_category": "process",
+    "remediation_guidance": "Document monitoring strategy including alert thresholds, escalation procedures, and on-call rotation",
+    "tags": [
+      "soc2",
+      "operations",
+      "monitoring"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-CC7-004-obligation",
+    "rule_id": "SOC2-CC7-004",
+    "severity": "info",
+    "message": "incident-response-plan: An incident response plan must be documented and tested",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Create and annually test an incident response plan covering detection, analysis, containment, eradication, and recovery",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "CC7.3",
+    "compliance_category": "process",
+    "remediation_guidance": "Create and annually test an incident response plan covering detection, analysis, containment, eradication, and recovery",
+    "tags": [
+      "soc2",
+      "operations",
+      "incident-response"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-CC8-001-obligation",
+    "rule_id": "SOC2-CC8-001",
+    "severity": "info",
+    "message": "change-management-policy: A change management policy must govern all production changes",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document change management procedures including change request, approval, testing, deployment, and rollback steps",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "CC8.1",
+    "compliance_category": "process",
+    "remediation_guidance": "Document change management procedures including change request, approval, testing, deployment, and rollback steps",
+    "tags": [
+      "soc2",
+      "change-management",
+      "policy"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-CC9-001-obligation",
+    "rule_id": "SOC2-CC9-001",
+    "severity": "info",
+    "message": "risk-assessment: Regular risk assessments must identify and evaluate operational and security risks",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Conduct and document annual risk assessments covering operational, security, and compliance risks with mitigation plans",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "CC9.1",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Conduct and document annual risk assessments covering operational, security, and compliance risks with mitigation plans",
+    "tags": [
+      "soc2",
+      "risk",
+      "assessment"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-A1-001-obligation",
+    "rule_id": "SOC2-A1-001",
+    "severity": "info",
+    "message": "availability-plan: A business continuity and disaster recovery plan must be documented",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document BCP/DR plans including RTOs, RPOs, backup procedures, failover testing, and recovery procedures",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "A1.2",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document BCP/DR plans including RTOs, RPOs, backup procedures, failover testing, and recovery procedures",
+    "tags": [
+      "soc2",
+      "availability",
+      "disaster-recovery"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-C1-002-obligation",
+    "rule_id": "SOC2-C1-002",
+    "severity": "info",
+    "message": "data-classification-policy: A data classification policy must define sensitivity levels and handling procedures",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Define data classification levels (public, internal, confidential, restricted) with handling, storage, and disposal requirements for each",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "C1.1",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Define data classification levels (public, internal, confidential, restricted) with handling, storage, and disposal requirements for each",
+    "tags": [
+      "soc2",
+      "confidentiality",
+      "policy"
+    ],
+    "is_obligation": true
+  },
+  {
+    "finding_id": "SOC2-C1-003-obligation",
+    "rule_id": "SOC2-C1-003",
+    "severity": "info",
+    "message": "encryption-policy: Encryption standards must be defined for data at rest and in transit",
+    "evidence": {
+      "file": "<project>",
+      "lines": [],
+      "snippet": ""
+    },
+    "suggestion": "Document encryption requirements specifying algorithms, key lengths, key management, and certificate lifecycle for data at rest and in transit",
+    "confidence": 1.0,
+    "deterministic": true,
+    "related_work_items": [],
+    "standard": "SOC2",
+    "clause": "C1.2",
+    "compliance_category": "documentation",
+    "remediation_guidance": "Document encryption requirements specifying algorithms, key lengths, key management, and certificate lifecycle for data at rest and in transit",
+    "tags": [
+      "soc2",
+      "confidentiality",
+      "encryption"
+    ],
+    "is_obligation": true
+  }
+]
