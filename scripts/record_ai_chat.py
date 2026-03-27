@@ -47,14 +47,20 @@ def main():
         shutil.rmtree(TMP_DIR)
     TMP_DIR.mkdir(parents=True)
 
-    # Scan at v0.1 for real findings
-    print("Scanning v0.1 for findings data...")
-    subprocess.run("git checkout v0.1-requirements", shell=True,
-                   capture_output=True, cwd=str(PROJECT_DIR))
+    # Temporarily hide .guard.yaml so .sentrik/config.yaml is used
+    guard_yaml = PROJECT_DIR / ".guard.yaml"
+    guard_yaml_bak = PROJECT_DIR / ".guard.yaml.recording-bak"
+    if guard_yaml.exists():
+        guard_yaml.rename(guard_yaml_bak)
+
+    # Scan at v0.1 for real findings (only src/tests/firmware/client)
+    print("Scanning v0.1 application code for findings data...")
+    subprocess.run("git checkout v0.1-requirements -- src/ tests/ firmware/ client/",
+                   shell=True, capture_output=True, cwd=str(PROJECT_DIR))
     subprocess.run("sentrik scan", shell=True, capture_output=True,
-                   env=ENV, timeout=120, cwd=str(PROJECT_DIR))
-    subprocess.run("git checkout main", shell=True,
-                   capture_output=True, cwd=str(PROJECT_DIR))
+                   env=ENV, timeout=300, cwd=str(PROJECT_DIR))
+    subprocess.run("git checkout main -- src/ tests/ firmware/ client/",
+                   shell=True, capture_output=True, cwd=str(PROJECT_DIR))
 
     # Start dashboard
     print("Starting dashboard with LLM enabled...")
@@ -113,72 +119,75 @@ def main():
             high_pill.first.click()
             page.wait_for_timeout(2000)
 
-        # -- SCENE 3: Click on a finding to expand --
-        print("  Scene 3: Expand finding")
-        # Find clickable finding rows
-        finding_rows = page.locator("tr.finding-row, .finding-row, [onclick*='toggleFinding']")
-        if finding_rows.count() > 0:
-            finding_rows.nth(0).click()
-            page.wait_for_timeout(2500)
+        # -- SCENE 3: Click on a finding to expand + open chat via JS --
+        print("  Scene 3: Expand finding and open AI chat")
+        page.evaluate("""
+            // Click the first finding row to expand it
+            const rows = document.querySelectorAll('tr[onclick]');
+            if (rows.length > 0) rows[0].click();
+        """)
+        page.wait_for_timeout(2500)
 
-        # -- SCENE 4: Click "Fix with AI" --
-        print("  Scene 4: Fix with AI")
-        fix_btn = page.locator("text=Fix with AI")
-        if fix_btn.count() > 0:
-            try:
-                fix_btn.first.click(timeout=5000)
-                page.wait_for_timeout(3000)
-                print("  Chat panel opened")
-            except Exception as e:
-                print(f"  Fix with AI click failed: {e}")
-        else:
-            print("  No 'Fix with AI' button found")
+        # -- SCENE 4: Open chat panel via JS (more reliable than clicking the button) --
+        print("  Scene 4: Opening chat panel")
+        page.evaluate("""
+            // Find and click the "Fix with AI" button
+            const btns = document.querySelectorAll('button');
+            for (const b of btns) {
+                if (b.textContent.trim() === 'Fix with AI' && b.offsetParent !== null) {
+                    b.click();
+                    break;
+                }
+            }
+        """)
+        page.wait_for_timeout(3000)
+
+        # Check if chat panel opened
+        panel_open = page.evaluate("document.getElementById('chat-panel')?.classList.contains('open')")
+        if not panel_open:
+            # Force open via JS using the first finding
+            print("  Forcing chat panel open via JS")
+            page.evaluate("""
+                if (typeof filteredFindings !== 'undefined' && filteredFindings.length > 0) {
+                    openChatPanel(filteredFindings[0]);
+                }
+            """)
+            page.wait_for_timeout(3000)
+
+        print("  Chat panel open:", page.evaluate("document.getElementById('chat-panel')?.classList.contains('open')"))
 
         # -- SCENE 5: Type a question --
         print("  Scene 5: Type question")
-        chat_input = page.locator("#chat-input")
-        if chat_input.count() > 0:
-            chat_input.first.click()
-            page.wait_for_timeout(500)
+        # Use JS to focus and fill the chat input
+        page.evaluate("""
+            const input = document.getElementById('chat-input');
+            if (input) {
+                input.scrollIntoView();
+                input.focus();
+            }
+        """)
+        page.wait_for_timeout(500)
 
-            question = "How do I fix this? Show me the exact code I need to add."
-            # Type slowly for visual effect
-            for char in question:
-                chat_input.first.press(char if char != " " else "Space")
-                page.wait_for_timeout(40)
-            page.wait_for_timeout(1000)
+        question = "How do I fix this? Show me the exact code I need to add."
+        page.evaluate(f"document.getElementById('chat-input').value = ''")
+        for char in question:
+            page.evaluate(f"document.getElementById('chat-input').value += '{char}'")
+            page.wait_for_timeout(35)
+        page.wait_for_timeout(1000)
 
-            # -- SCENE 6: Send and wait for response --
-            print("  Scene 6: Sending message, waiting for LLM...")
-            send_btn = page.locator("#chat-send, button:has-text('Send')")
-            if send_btn.count() > 0:
-                try:
-                    send_btn.first.click(timeout=3000)
-                except Exception:
-                    page.keyboard.press("Enter")
-            else:
-                page.keyboard.press("Enter")
+        # -- SCENE 6: Send and wait for response --
+        print("  Scene 6: Sending message, waiting for LLM...")
+        page.evaluate("sendChatMessage()")
+        page.wait_for_timeout(15000)
 
-            # Wait for LLM response (up to 15 seconds)
-            page.wait_for_timeout(15000)
+        # Scroll chat to see full response
+        page.evaluate("""
+            const msgs = document.getElementById('chat-messages');
+            if (msgs) msgs.scrollTop = msgs.scrollHeight;
+        """)
+        page.wait_for_timeout(4000)
 
-            # Scroll chat to see full response
-            page.evaluate("""
-                const msgs = document.getElementById('chat-messages');
-                if (msgs) msgs.scrollTop = msgs.scrollHeight;
-            """)
-            page.wait_for_timeout(3000)
-
-            # Scroll down more to see Apply Fix button
-            page.evaluate("""
-                const msgs = document.getElementById('chat-messages');
-                if (msgs) msgs.scrollTop = msgs.scrollHeight;
-            """)
-            page.wait_for_timeout(3000)
-
-            print("  Response should be visible")
-        else:
-            print("  No chat input found")
+        print("  Response should be visible")
 
         # -- SCENE 7: Hold on the result --
         page.wait_for_timeout(3000)
@@ -198,6 +207,10 @@ def main():
         proc.wait(timeout=5)
     except Exception:
         proc.kill()
+
+    # Restore .guard.yaml
+    if guard_yaml_bak.exists():
+        guard_yaml_bak.rename(guard_yaml)
 
     # Convert to mp4
     print("Converting to mp4...")

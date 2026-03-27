@@ -22,13 +22,15 @@ standards_packs:
 
 # Scan settings
 scan_exclude:
-  - "**/__pycache__/**"
-  - "**/node_modules/**"
-  - "**/.git/**"
-  - "**/out/**"
-  - "**/.venv/**"
-  - "**/recordings/**"
-  - "**/docs/**"
+  - "__pycache__"
+  - "node_modules"
+  - ".git"
+  - "out"
+  - ".venv"
+  - "recordings"
+  - "docs"
+  - "scripts"
+  - "examples"
 
 # Gate thresholds
 gate_fail_on:

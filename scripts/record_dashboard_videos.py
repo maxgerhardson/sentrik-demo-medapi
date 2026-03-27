@@ -41,12 +41,14 @@ ENV = {
 
 
 def scan_at(tag=None):
-    """Run sentrik scan, optionally at a git tag."""
+    """Run sentrik scan, optionally checking out app code from a git tag."""
     if tag:
-        subprocess.run(f"git checkout {tag}", shell=True, capture_output=True, cwd=str(PROJECT_DIR))
-    subprocess.run("sentrik scan", shell=True, capture_output=True, env=ENV, timeout=120, cwd=str(PROJECT_DIR))
+        subprocess.run(f"git checkout {tag} -- src/ tests/ firmware/ client/",
+                       shell=True, capture_output=True, cwd=str(PROJECT_DIR))
+    subprocess.run("sentrik scan", shell=True, capture_output=True, env=ENV, timeout=300, cwd=str(PROJECT_DIR))
     if tag:
-        subprocess.run("git checkout main", shell=True, capture_output=True, cwd=str(PROJECT_DIR))
+        subprocess.run("git checkout main -- src/ tests/ firmware/ client/",
+                       shell=True, capture_output=True, cwd=str(PROJECT_DIR))
 
 
 def start_dashboard():
@@ -431,12 +433,23 @@ if __name__ == "__main__":
     if TMP_DIR.exists():
         shutil.rmtree(TMP_DIR)
 
-    record_overview_tour()
-    record_findings_and_ai()
-    record_supply_chain()
-    record_governance_audit()
-    record_devops_integration()
-    record_standards_rules()
+    # Hide .guard.yaml so .sentrik/config.yaml is used (with scan_exclude)
+    guard_yaml = PROJECT_DIR / ".guard.yaml"
+    guard_yaml_bak = PROJECT_DIR / ".guard.yaml.recording-bak"
+    if guard_yaml.exists():
+        guard_yaml.rename(guard_yaml_bak)
+
+    try:
+        record_overview_tour()
+        record_findings_and_ai()
+        record_supply_chain()
+        record_governance_audit()
+        record_devops_integration()
+        record_standards_rules()
+    finally:
+        # Restore .guard.yaml
+        if guard_yaml_bak.exists():
+            guard_yaml_bak.rename(guard_yaml)
 
     # Final cleanup
     if TMP_DIR.exists():
