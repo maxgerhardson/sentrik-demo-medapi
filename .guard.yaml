@@ -1,0 +1,13 @@
+# Legacy configuration format — for sentrik migrate demo
+# This file demonstrates migration from .guard.yaml to .sentrik/config.yaml
+output_dir: out
+standards_file: standards.yaml
+gate_fail_on:
+  - critical
+  - high
+reporters:
+  - html
+  - sarif
+standards_packs:
+  - owasp-top-10
+  - hipaa
