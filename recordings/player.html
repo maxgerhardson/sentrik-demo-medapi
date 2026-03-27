@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sentrik Demo Recordings</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.8.0/dist/bundle/asciinema-player.css" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; background: #1a1a2e; color: #e0e0e0; }
+    h1 { color: #00d4ff; }
+    h2 { color: #7ec8e3; margin-top: 2rem; }
+    .recording { margin: 1rem 0 2rem; }
+    select { font-size: 1rem; padding: 0.5rem; margin-bottom: 1rem; background: #16213e; color: #e0e0e0; border: 1px solid #0f3460; border-radius: 4px; }
+    p { color: #a0a0a0; }
+  </style>
+</head>
+<body>
+  <h1>Sentrik Demo Recordings</h1>
+  <p>Select a recording to play:</p>
+
+  <select id="picker" onchange="loadRecording(this.value)">
+    <option value="01-init-and-scan.cast">01 — Init & First Scan (15s)</option>
+    <option value="02-fix-and-gate.cast">02 — Fix Findings & Gate Pass (13s)</option>
+    <option value="03-supply-chain.cast">03 — Supply Chain Security (10s)</option>
+    <option value="04-compliance.cast">04 — Compliance Reports (25s)</option>
+    <option value="05-full-lifecycle.cast" selected>05 — Full Lifecycle (21s)</option>
+  </select>
+
+  <div id="player" class="recording"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.8.0/dist/bundle/asciinema-player.min.js"></script>
+  <script>
+    let currentPlayer = null;
+
+    function loadRecording(file) {
+      const container = document.getElementById('player');
+      container.innerHTML = '';
+      currentPlayer = AsciinemaPlayer.create(file, container, {
+        cols: 120,
+        rows: 40,
+        theme: 'dracula',
+        fit: 'width',
+        autoPlay: true,
+        speed: 1.5,
+      });
+    }
+
+    loadRecording('05-full-lifecycle.cast');
+  </script>
+</body>
+</html>

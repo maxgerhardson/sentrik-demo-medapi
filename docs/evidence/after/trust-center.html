@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VitalSync Medical — Trust Center</title>
+<style>
+    :root {
+        --bg: #0f0e17;
+        --surface: #1a1a2e;
+        --border: #2a2a40;
+        --text: #e0e0e0;
+        --text-muted: #999;
+        --primary: #7c3aed;
+        --primary-light: #a78bfa;
+    }
+    @media (prefers-color-scheme: light) {
+        :root {
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --border: #dee2e6;
+            --text: #212529;
+            --text-muted: #6c757d;
+        }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Header */
+    .tc-header {
+        text-align: center;
+        padding: 3rem 0 2rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .tc-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .tc-header .tc-sub { color: var(--text-muted); }
+    .tc-header .tc-updated {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 1rem;
+    }
+
+    /* Overall status */
+    .status-hero {
+        text-align: center;
+        padding: 2.5rem 0;
+    }
+    .status-icon {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .status-label {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+    .score-big {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 0.25rem;
+    }
+    .score-detail {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+    }
+
+    /* Severity summary */
+    .sev-row {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+    .sev-card { text-align: center; min-width: 70px; }
+    .sev-count { font-size: 1.8rem; font-weight: 700; }
+    .sev-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+
+    /* Framework cards */
+    .fw-section { padding: 2rem 0; }
+    .fw-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary-light);
+    }
+    .fw-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 1rem;
+    }
+    .fw-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.25rem;
+    }
+    .fw-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+    .fw-header h3 { font-size: 1.05rem; }
+    .fw-status { font-size: 0.85rem; font-weight: 600; }
+    .fw-score-bar {
+        height: 6px;
+        background: var(--border);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+    }
+    .fw-score-fill {
+        height: 100%;
+        border-radius: 3px;
+        transition: width 0.3s;
+    }
+    .fw-details { margin-bottom: 0.5rem; }
+    .fw-score-text { font-size: 0.85rem; color: var(--text-muted); }
+    .fw-severities { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .sev-badge {
+        display: inline-block;
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        color: #fff;
+        font-weight: 600;
+    }
+    .fw-obligations {
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    /* Footer */
+    .tc-footer {
+        text-align: center;
+        padding: 2rem 0;
+        border-top: 1px solid var(--border);
+        color: var(--text-muted);
+        font-size: 0.8rem;
+    }
+    .tc-footer a { color: var(--primary-light); text-decoration: none; }
+
+    /* No frameworks fallback */
+    .no-frameworks {
+        text-align: center;
+        padding: 2rem;
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    @media print {
+        body { background: #fff; color: #000; }
+        .fw-card { border-color: #ccc; }
+    }
+    @media (max-width: 480px) {
+        .fw-grid { grid-template-columns: 1fr; }
+        .sev-row { flex-wrap: wrap; }
+        .score-big { font-size: 3rem; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="tc-header">
+    <h1>VitalSync Medical Trust Center</h1>
+    <p class="tc-sub">Automated compliance posture powered by Sentrik</p>
+    <p class="tc-updated">Last updated: 2026-03-27 13:37:45 UTC</p>
+</div>
+
+<div class="status-hero">
+    <div class="status-icon" style="color:#4caf50">&#x2714;</div>
+    <div class="status-label" style="color:#4caf50">Healthy</div>
+    <div class="score-big" style="color:#4caf50">100.0%</div>
+    <div class="score-detail">155 of 155 rules passing</div>
+</div>
+
+<div class="sev-row">
+    
+        <div class="sev-card">
+            <div class="sev-count" style="color:#d32f2f">0</div>
+            <div class="sev-label">Critical</div>
+        </div>
+        
+        <div class="sev-card">
+            <div class="sev-count" style="color:#f57c00">0</div>
+            <div class="sev-label">High</div>
+        </div>
+        
+        <div class="sev-card">
+            <div class="sev-count" style="color:#fbc02d">0</div>
+            <div class="sev-label">Medium</div>
+        </div>
+        
+        <div class="sev-card">
+            <div class="sev-count" style="color:#1976d2">0</div>
+            <div class="sev-label">Low</div>
+        </div>
+        
+        <div class="sev-card">
+            <div class="sev-count" style="color:#757575">0</div>
+            <div class="sev-label">Info</div>
+        </div>
+        
+</div>
+
+<div class="fw-section">
+    <h2>Standards &amp; Frameworks</h2>
+    
+    <div class="fw-grid">
+        
+        <div class="fw-card">
+            <div class="fw-header">
+                <h3>HIPAA</h3>
+                <span class="fw-status" style="color:#4caf50">Healthy</span>
+            </div>
+            <div class="fw-score-bar">
+                <div class="fw-score-fill" style="width:100.0%;background:#4caf50"></div>
+            </div>
+            <div class="fw-details">
+                <span class="fw-score-text">100.0% — 9/9 rules passing</span>
+            </div>
+            <div class="fw-severities"><span class="sev-badge" style="background:#4caf50">No code findings</span></div>
+            <div class="fw-obligations">9 documentation obligation(s)</div>
+        </div>
+        
+        <div class="fw-card">
+            <div class="fw-header">
+                <h3>IEC 62304</h3>
+                <span class="fw-status" style="color:#4caf50">Healthy</span>
+            </div>
+            <div class="fw-score-bar">
+                <div class="fw-score-fill" style="width:100.0%;background:#4caf50"></div>
+            </div>
+            <div class="fw-details">
+                <span class="fw-score-text">100.0% — 8/8 rules passing</span>
+            </div>
+            <div class="fw-severities"><span class="sev-badge" style="background:#4caf50">No code findings</span></div>
+            <div class="fw-obligations">8 documentation obligation(s)</div>
+        </div>
+        
+        <div class="fw-card">
+            <div class="fw-header">
+                <h3>OWASP Top 10</h3>
+                <span class="fw-status" style="color:#4caf50">Healthy</span>
+            </div>
+            <div class="fw-score-bar">
+                <div class="fw-score-fill" style="width:100.0%;background:#4caf50"></div>
+            </div>
+            <div class="fw-details">
+                <span class="fw-score-text">100.0% — 5/5 rules passing</span>
+            </div>
+            <div class="fw-severities"><span class="sev-badge" style="background:#4caf50">No code findings</span></div>
+            <div class="fw-obligations">5 documentation obligation(s)</div>
+        </div>
+        
+        <div class="fw-card">
+            <div class="fw-header">
+                <h3>SOC2</h3>
+                <span class="fw-status" style="color:#4caf50">Healthy</span>
+            </div>
+            <div class="fw-score-bar">
+                <div class="fw-score-fill" style="width:100.0%;background:#4caf50"></div>
+            </div>
+            <div class="fw-details">
+                <span class="fw-score-text">100.0% — 9/9 rules passing</span>
+            </div>
+            <div class="fw-severities"><span class="sev-badge" style="background:#4caf50">No code findings</span></div>
+            <div class="fw-obligations">9 documentation obligation(s)</div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="tc-footer">
+    Generated by <a href="https://sentrik.dev">Sentrik</a> v1.1.0 &mdash;
+    This page contains no source code, file paths, or finding details.
+</div>
+
+</div>
+</body>
+</html>

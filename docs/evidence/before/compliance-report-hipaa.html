@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HIPAA Compliance Report</title>
+<style>
+  :root {
+    --bg: #fff; --text: #1a1a2e; --border: #e0e0e0; --card-bg: #f8f9fa;
+    --table-stripe: #f5f5f5; --header-bg: #1a1a2e; --header-text: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --text: #e6edf3; --border: #30363d; --card-bg: #161b22;
+      --table-stripe: #161b22; --header-bg: #161b22; --header-text: #e6edf3;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    padding: 2rem; max-width: 1200px; margin: 0 auto;
+  }
+  h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 2rem 0 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+
+  .meta { color: #888; font-size: 0.85rem; margin-bottom: 1.5rem; }
+
+  .score-card {
+    display: inline-flex; align-items: center; gap: 1.5rem;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.2rem 2rem; margin-bottom: 1.5rem;
+  }
+  .score-number { font-size: 2.5rem; font-weight: 800; }
+  .score-detail { font-size: 0.9rem; }
+  .score-detail div { margin-bottom: 0.2rem; }
+
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .summary-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1rem; text-align: center;
+  }
+  .summary-card .num { font-size: 1.6rem; font-weight: 700; }
+  .summary-card .label { font-size: 0.8rem; color: #888; }
+
+  table {
+    width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 1.5rem;
+  }
+  th {
+    background: var(--header-bg); color: var(--header-text);
+    padding: 0.6rem 0.8rem; text-align: left; font-weight: 600;
+  }
+  td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) { background: var(--table-stripe); }
+  code { background: var(--card-bg); padding: 2px 6px; border-radius: 3px; font-size: 0.8rem; }
+
+  .status-pass { color: #4caf50; font-weight: 700; }
+  .status-fail { color: #d32f2f; font-weight: 700; }
+
+  .footer {
+    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border);
+    font-size: 0.75rem; color: #888; text-align: center;
+  }
+
+  @media print {
+    body { padding: 0; font-size: 10pt; }
+    .score-card { break-inside: avoid; }
+    table { font-size: 8pt; }
+  }
+</style>
+</head>
+<body>
+
+<h1>HIPAA Compliance Report</h1>
+<div class="meta">
+  Generated 2026-03-27 13:34 UTC &mdash; Sentrik v1.1.0
+</div>
+
+<div class="score-card">
+  <div class="score-number" style="color:#4caf50">100.0%</div>
+  <div class="score-detail">
+    <div><strong>9</strong> of <strong>9</strong> rules passed</div>
+    <div><strong>0</strong> rule(s) with findings</div>
+    <div><strong>9</strong> clauses checked, <strong>9</strong> clean</div>
+  </div>
+</div>
+
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="num">0</div>
+    <div class="label">Code Findings</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">9</div>
+    <div class="label">Documentation Obligations</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">9</div>
+    <div class="label">Clauses Checked</div>
+  </div>
+  <div class="summary-card">
+    <div class="num" style="color:#4caf50">100.0%</div>
+    <div class="label">Compliance Score</div>
+  </div>
+</div>
+
+<div style="margin-bottom:1.5rem"></div>
+
+<h2>Clause-by-Clause Status</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Clause</th>
+      <th>Status</th>
+      <th>Worst Severity</th>
+      <th>Findings</th>
+      <th>Obligations</th>
+      <th>Rules</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>164.308(a)(1)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.308-a1</code></td></tr>
+<tr><td><strong>164.308(a)(3)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.308-a3</code></td></tr>
+<tr><td><strong>164.308(a)(4)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.308-a4</code></td></tr>
+<tr><td><strong>164.308(a)(5)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.308-a5</code></td></tr>
+<tr><td><strong>164.308(a)(6)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.308-a6</code></td></tr>
+<tr><td><strong>164.308(a)(7)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.308-a7</code></td></tr>
+<tr><td><strong>164.310(a)(1)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.310-a1</code></td></tr>
+<tr><td><strong>164.314(a)(1)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.314-a1</code></td></tr>
+<tr><td><strong>164.316(b)(1)</strong></td><td><span class="status-pass">PASS</span></td><td>—</td><td>0</td><td>1</td><td><code>HIPAA-164.316-b1</code></td></tr>
+  </tbody>
+</table>
+
+<h2>Findings Detail</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Severity</th>
+      <th>Rule</th>
+      <th>Clause</th>
+      <th>File</th>
+      <th>Message</th>
+      <th>Remediation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="6">No code findings — all rules passed.</td></tr>
+  </tbody>
+</table>
+
+<h2>Documentation Obligations</h2>
+<p style="margin-bottom:1rem">Non-code compliance items required by the standard. These do not fail the gate but must be addressed for full regulatory compliance.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Rule</th>
+      <th>Clause</th>
+      <th>Obligation</th>
+      <th>Guidance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>HIPAA-164.308-a1</code></td><td>164.308(a)(1)</td><td>risk-analysis: A risk analysis must identify threats and vulnerabilities to ePHI</td><td>Conduct and document a comprehensive risk analysis identifying threats, vulnerabilities, and likelihood of impact to ePHI</td></tr>
+<tr><td><code>HIPAA-164.308-a3</code></td><td>164.308(a)(3)</td><td>workforce-security-policy: Policies must ensure workforce members have appropriate access to ePHI</td><td>Document workforce security procedures including authorization, supervision, clearance, and termination procedures for ePHI access</td></tr>
+<tr><td><code>HIPAA-164.308-a4</code></td><td>164.308(a)(4)</td><td>information-access-management: Access to ePHI must be managed based on role and minimum necessary standard</td><td>Document access authorization policies implementing the minimum necessary standard for ePHI access</td></tr>
+<tr><td><code>HIPAA-164.308-a5</code></td><td>164.308(a)(5)</td><td>security-awareness-training: Security awareness and training program must be established for all workforce members</td><td>Establish a security awareness training program covering password management, log-in monitoring, and malicious software protection</td></tr>
+<tr><td><code>HIPAA-164.308-a6</code></td><td>164.308(a)(6)</td><td>security-incident-procedures: Procedures for identifying, responding to, and mitigating security incidents must be documented</td><td>Document security incident response procedures including identification, response, mitigation, and documentation of incidents and outcomes</td></tr>
+<tr><td><code>HIPAA-164.308-a7</code></td><td>164.308(a)(7)</td><td>contingency-plan: A contingency plan must address data backup, disaster recovery, and emergency operations</td><td>Document contingency plan including data backup plan, disaster recovery plan, emergency mode operation plan, and testing procedures</td></tr>
+<tr><td><code>HIPAA-164.310-a1</code></td><td>164.310(a)(1)</td><td>facility-access-controls: Policies must limit physical access to electronic information systems and facilities</td><td>Document facility access controls including contingency operations, facility security plan, access control and validation, and maintenance records</td></tr>
+<tr><td><code>HIPAA-164.314-a1</code></td><td>164.314(a)(1)</td><td>business-associate-agreements: Business Associate Agreements must be in place with all entities that handle ePHI</td><td>Ensure Business Associate Agreements are executed with all vendors, subcontractors, and partners who create, receive, maintain, or transmit ePHI</td></tr>
+<tr><td><code>HIPAA-164.316-b1</code></td><td>164.316(b)(1)</td><td>documentation-retention-policy: HIPAA-required documentation must be retained for at least six years</td><td>Establish a documentation retention policy ensuring all HIPAA-required policies, procedures, and records are retained for a minimum of six years</td></tr>
+  </tbody>
+</table>
+
+
+<div class="footer">
+  Sentrik v1.1.0 &mdash; HIPAA Compliance Report &mdash; 2026-03-27 13:34 UTC
+</div>
+
+</body>
+</html>
