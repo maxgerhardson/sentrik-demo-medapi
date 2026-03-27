@@ -79,7 +79,7 @@ def stop_dashboard(proc):
 def convert_to_mp4(webm_path, mp4_path):
     subprocess.run(
         [FFMPEG, "-i", str(webm_path), "-c:v", "libx264", "-preset", "fast",
-         "-crf", "22", "-movflags", "+faststart", str(mp4_path), "-y"],
+         "-crf", "18", "-preset", "slow", "-movflags", "+faststart", str(mp4_path), "-y"],
         capture_output=True, timeout=120
     )
 
@@ -100,9 +100,9 @@ class DashboardRecorder:
         self._pw = sync_playwright().start()
         self._browser = self._pw.chromium.launch(headless=True)
         self._context = self._browser.new_context(
-            viewport={"width": 1440, "height": 900},
+            viewport={"width": 1920, "height": 1080},
             record_video_dir=str(self.tmp),
-            record_video_size={"width": 1440, "height": 900},
+            record_video_size={"width": 1920, "height": 1080},
         )
         self.page = self._context.new_page()
         self.page.goto(DASHBOARD_URL, wait_until="networkidle", timeout=15000)
