@@ -1,0 +1,302 @@
+[
+  {
+    "id": "WI-1",
+    "title": "[IEC62304-5.1.1] software-development-plan",
+    "description": "<b>Rule:</b> IEC62304-5.1.1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> IEC 62304<br>\n<b>Clause:</b> 5.1.1<br>\n<b>Category:</b> documentation<br>\n<p>software-development-plan: A Software Development Plan must be established and maintained</p>\n<p><b>Remediation:</b> Create and maintain a Software Development Plan covering lifecycle activities, deliverables, and traceability</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No IEC62304-5.1.1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Create and maintain a Software Development Plan covering lifecycle activities, deliverables, and traceability</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "IEC62304-5.1.1",
+    "devops_id": 15
+  },
+  {
+    "id": "WI-2",
+    "title": "[IEC62304-5.1.6] software-verification-plan",
+    "description": "<b>Rule:</b> IEC62304-5.1.6<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> IEC 62304<br>\n<b>Clause:</b> 5.1.6<br>\n<b>Category:</b> documentation<br>\n<p>software-verification-plan: A Software Verification Plan must define verification activities and acceptance criteria</p>\n<p><b>Remediation:</b> Document verification strategy including unit tests, integration tests, and acceptance criteria</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No IEC62304-5.1.6 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document verification strategy including unit tests, integration tests, and acceptance criteria</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "IEC62304-5.1.6",
+    "devops_id": 16
+  },
+  {
+    "id": "WI-3",
+    "title": "[IEC62304-5.2.1] software-requirements-specification",
+    "description": "<b>Rule:</b> IEC62304-5.2.1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> IEC 62304<br>\n<b>Clause:</b> 5.2.1<br>\n<b>Category:</b> documentation<br>\n<p>software-requirements-specification: Software requirements must be documented and traceable to system requirements</p>\n<p><b>Remediation:</b> Create a Software Requirements Specification (SRS) with traceable requirements</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No IEC62304-5.2.1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Create a Software Requirements Specification (SRS) with traceable requirements</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "IEC62304-5.2.1",
+    "devops_id": 17
+  },
+  {
+    "id": "WI-4",
+    "title": "[IEC62304-5.3.1] architecture-documentation",
+    "description": "<b>Rule:</b> IEC62304-5.3.1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> IEC 62304<br>\n<b>Clause:</b> 5.3.1<br>\n<b>Category:</b> documentation<br>\n<p>architecture-documentation: Software architecture must be documented showing subdivision into software items</p>\n<p><b>Remediation:</b> Document software architecture with component diagrams and interface descriptions</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No IEC62304-5.3.1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document software architecture with component diagrams and interface descriptions</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "IEC62304-5.3.1",
+    "devops_id": 18
+  },
+  {
+    "id": "WI-5",
+    "title": "[IEC62304-5.4.1] detailed-design",
+    "description": "<b>Rule:</b> IEC62304-5.4.1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> IEC 62304<br>\n<b>Clause:</b> 5.4.1<br>\n<b>Category:</b> documentation<br>\n<p>detailed-design: Detailed design documentation is required for Class C software items</p>\n<p><b>Remediation:</b> Create detailed design documents for each software unit including algorithms and data structures</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No IEC62304-5.4.1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Create detailed design documents for each software unit including algorithms and data structures</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "IEC62304-5.4.1",
+    "devops_id": 19
+  },
+  {
+    "id": "WI-6",
+    "title": "[OWASP-A04-001] threat-model",
+    "description": "<b>Rule:</b> OWASP-A04-001<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> OWASP Top 10<br>\n<b>Clause:</b> A04:2021<br>\n<b>Category:</b> documentation<br>\n<p>threat-model: A threat model must be created and maintained for the application</p>\n<p><b>Remediation:</b> Create a threat model document identifying assets, trust boundaries, threat actors, and mitigations (STRIDE or similar methodology)</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No OWASP-A04-001 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Create a threat model document identifying assets, trust boundaries, threat actors, and mitigations (STRIDE or similar methodology)</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "OWASP-A04-001",
+    "devops_id": 20
+  },
+  {
+    "id": "WI-7",
+    "title": "[HIPAA-164.308-a1] risk-analysis",
+    "description": "<b>Rule:</b> HIPAA-164.308-a1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.308(a)(1)<br>\n<b>Category:</b> documentation<br>\n<p>risk-analysis: A risk analysis must identify threats and vulnerabilities to ePHI</p>\n<p><b>Remediation:</b> Conduct and document a comprehensive risk analysis identifying threats, vulnerabilities, and likelihood of impact to ePHI</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.308-a1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Conduct and document a comprehensive risk analysis identifying threats, vulnerabilities, and likelihood of impact to ePHI</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.308-a1",
+    "devops_id": 21
+  },
+  {
+    "id": "WI-8",
+    "title": "[HIPAA-164.308-a3] workforce-security-policy",
+    "description": "<b>Rule:</b> HIPAA-164.308-a3<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.308(a)(3)<br>\n<b>Category:</b> documentation<br>\n<p>workforce-security-policy: Policies must ensure workforce members have appropriate access to ePHI</p>\n<p><b>Remediation:</b> Document workforce security procedures including authorization, supervision, clearance, and termination procedures for ePHI access</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.308-a3 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document workforce security procedures including authorization, supervision, clearance, and termination procedures for ePHI access</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.308-a3",
+    "devops_id": 22
+  },
+  {
+    "id": "WI-9",
+    "title": "[HIPAA-164.308-a4] information-access-management",
+    "description": "<b>Rule:</b> HIPAA-164.308-a4<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.308(a)(4)<br>\n<b>Category:</b> documentation<br>\n<p>information-access-management: Access to ePHI must be managed based on role and minimum necessary standard</p>\n<p><b>Remediation:</b> Document access authorization policies implementing the minimum necessary standard for ePHI access</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.308-a4 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document access authorization policies implementing the minimum necessary standard for ePHI access</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.308-a4",
+    "devops_id": 23
+  },
+  {
+    "id": "WI-10",
+    "title": "[HIPAA-164.308-a5] security-awareness-training",
+    "description": "<b>Rule:</b> HIPAA-164.308-a5<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.308(a)(5)<br>\n<b>Category:</b> documentation<br>\n<p>security-awareness-training: Security awareness and training program must be established for all workforce members</p>\n<p><b>Remediation:</b> Establish a security awareness training program covering password management, log-in monitoring, and malicious software protection</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.308-a5 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Establish a security awareness training program covering password management, log-in monitoring, and malicious software protection</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.308-a5",
+    "devops_id": 24
+  },
+  {
+    "id": "WI-11",
+    "title": "[HIPAA-164.308-a6] security-incident-procedures",
+    "description": "<b>Rule:</b> HIPAA-164.308-a6<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.308(a)(6)<br>\n<b>Category:</b> documentation<br>\n<p>security-incident-procedures: Procedures for identifying, responding to, and mitigating security incidents must be documented</p>\n<p><b>Remediation:</b> Document security incident response procedures including identification, response, mitigation, and documentation of incidents and outcomes</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.308-a6 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document security incident response procedures including identification, response, mitigation, and documentation of incidents and outcomes</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.308-a6",
+    "devops_id": 25
+  },
+  {
+    "id": "WI-12",
+    "title": "[HIPAA-164.308-a7] contingency-plan",
+    "description": "<b>Rule:</b> HIPAA-164.308-a7<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.308(a)(7)<br>\n<b>Category:</b> documentation<br>\n<p>contingency-plan: A contingency plan must address data backup, disaster recovery, and emergency operations</p>\n<p><b>Remediation:</b> Document contingency plan including data backup plan, disaster recovery plan, emergency mode operation plan, and testing procedures</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.308-a7 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document contingency plan including data backup plan, disaster recovery plan, emergency mode operation plan, and testing procedures</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.308-a7",
+    "devops_id": 26
+  },
+  {
+    "id": "WI-13",
+    "title": "[HIPAA-164.310-a1] facility-access-controls",
+    "description": "<b>Rule:</b> HIPAA-164.310-a1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.310(a)(1)<br>\n<b>Category:</b> documentation<br>\n<p>facility-access-controls: Policies must limit physical access to electronic information systems and facilities</p>\n<p><b>Remediation:</b> Document facility access controls including contingency operations, facility security plan, access control and validation, and maintenance records</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.310-a1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document facility access controls including contingency operations, facility security plan, access control and validation, and maintenance records</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.310-a1",
+    "devops_id": 27
+  },
+  {
+    "id": "WI-14",
+    "title": "[HIPAA-164.314-a1] business-associate-agreements",
+    "description": "<b>Rule:</b> HIPAA-164.314-a1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.314(a)(1)<br>\n<b>Category:</b> documentation<br>\n<p>business-associate-agreements: Business Associate Agreements must be in place with all entities that handle ePHI</p>\n<p><b>Remediation:</b> Ensure Business Associate Agreements are executed with all vendors, subcontractors, and partners who create, receive, maintain, or transmit ePHI</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.314-a1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Ensure Business Associate Agreements are executed with all vendors, subcontractors, and partners who create, receive, maintain, or transmit ePHI</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.314-a1",
+    "devops_id": 28
+  },
+  {
+    "id": "WI-15",
+    "title": "[HIPAA-164.316-b1] documentation-retention-policy",
+    "description": "<b>Rule:</b> HIPAA-164.316-b1<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> HIPAA<br>\n<b>Clause:</b> 164.316(b)(1)<br>\n<b>Category:</b> documentation<br>\n<p>documentation-retention-policy: HIPAA-required documentation must be retained for at least six years</p>\n<p><b>Remediation:</b> Establish a documentation retention policy ensuring all HIPAA-required policies, procedures, and records are retained for a minimum of six years</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No HIPAA-164.316-b1 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Establish a documentation retention policy ensuring all HIPAA-required policies, procedures, and records are retained for a minimum of six years</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "HIPAA-164.316-b1",
+    "devops_id": 29
+  },
+  {
+    "id": "WI-16",
+    "title": "[SOC2-CC6-003] access-control-policy",
+    "description": "<b>Rule:</b> SOC2-CC6-003<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> SOC2<br>\n<b>Clause:</b> CC6.1<br>\n<b>Category:</b> documentation<br>\n<p>access-control-policy: An access control policy must define roles, permissions, and provisioning procedures</p>\n<p><b>Remediation:</b> Document access control policies including role definitions, least-privilege principle, access reviews, and deprovisioning procedures</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No SOC2-CC6-003 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document access control policies including role definitions, least-privilege principle, access reviews, and deprovisioning procedures</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "SOC2-CC6-003",
+    "devops_id": 30
+  },
+  {
+    "id": "WI-17",
+    "title": "[SOC2-CC9-001] risk-assessment",
+    "description": "<b>Rule:</b> SOC2-CC9-001<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> SOC2<br>\n<b>Clause:</b> CC9.1<br>\n<b>Category:</b> documentation<br>\n<p>risk-assessment: Regular risk assessments must identify and evaluate operational and security risks</p>\n<p><b>Remediation:</b> Conduct and document annual risk assessments covering operational, security, and compliance risks with mitigation plans</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No SOC2-CC9-001 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Conduct and document annual risk assessments covering operational, security, and compliance risks with mitigation plans</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "SOC2-CC9-001",
+    "devops_id": 31
+  },
+  {
+    "id": "WI-18",
+    "title": "[SOC2-A1-001] availability-plan",
+    "description": "<b>Rule:</b> SOC2-A1-001<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> SOC2<br>\n<b>Clause:</b> A1.2<br>\n<b>Category:</b> documentation<br>\n<p>availability-plan: A business continuity and disaster recovery plan must be documented</p>\n<p><b>Remediation:</b> Document BCP/DR plans including RTOs, RPOs, backup procedures, failover testing, and recovery procedures</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No SOC2-A1-001 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document BCP/DR plans including RTOs, RPOs, backup procedures, failover testing, and recovery procedures</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "SOC2-A1-001",
+    "devops_id": 32
+  },
+  {
+    "id": "WI-19",
+    "title": "[SOC2-C1-002] data-classification-policy",
+    "description": "<b>Rule:</b> SOC2-C1-002<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> SOC2<br>\n<b>Clause:</b> C1.1<br>\n<b>Category:</b> documentation<br>\n<p>data-classification-policy: A data classification policy must define sensitivity levels and handling procedures</p>\n<p><b>Remediation:</b> Define data classification levels (public, internal, confidential, restricted) with handling, storage, and disposal requirements for each</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No SOC2-C1-002 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Define data classification levels (public, internal, confidential, restricted) with handling, storage, and disposal requirements for each</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "SOC2-C1-002",
+    "devops_id": 33
+  },
+  {
+    "id": "WI-20",
+    "title": "[SOC2-C1-003] encryption-policy",
+    "description": "<b>Rule:</b> SOC2-C1-003<br>\n<b>Severity:</b> info<br>\n<b>Count:</b> 1 finding(s)<br>\n<b>Standard:</b> SOC2<br>\n<b>Clause:</b> C1.2<br>\n<b>Category:</b> documentation<br>\n<p>encryption-policy: Encryption standards must be defined for data at rest and in transit</p>\n<p><b>Remediation:</b> Document encryption requirements specifying algorithms, key lengths, key management, and certificate lifecycle for data at rest and in transit</p>\n<b>Affected files:</b>\n<ul>\n  <li><code>&lt;project&gt;</code></li>\n</ul>",
+    "acceptance_criteria": [
+      "<ul>",
+      "<li>No SOC2-C1-003 findings in sentrik scan</li>",
+      "<li>sentrik gate passes with no critical/high findings</li>",
+      "<li>Document encryption requirements specifying algorithms, key lengths, key management, and certificate lifecycle for data at rest and in transit</li>",
+      "</ul>"
+    ],
+    "state": "active",
+    "rule_id": "SOC2-C1-003",
+    "devops_id": 34
+  }
+]

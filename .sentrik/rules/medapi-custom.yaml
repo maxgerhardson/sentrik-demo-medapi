@@ -1,0 +1,108 @@
+# =============================================================================
+# VitalSync Custom Standards Pack — Project-Specific Rules
+# =============================================================================
+# These rules enforce domain-specific compliance requirements that go beyond
+# the generic standards packs. They encode institutional knowledge about
+# medical device data handling specific to the VitalSync platform.
+#
+# Import: sentrik import-pack .sentrik/rules/medapi-custom.yaml
+# Export: sentrik export-pack medapi-custom
+# =============================================================================
+
+pack:
+  id: medapi-custom
+  name: "VitalSync Medical API — Custom Rules"
+  version: "1.0.0"
+  description: >
+    Project-specific compliance rules for patient vitals processing.
+    Covers PHI encryption enforcement, traceability headers, clinical
+    validation requirements, and repository pattern enforcement.
+  author: "VitalSync Engineering"
+  tier: custom
+
+rules:
+  # -------------------------------------------------------------------------
+  # MEDAPI-001: PHI fields must use encryption
+  # -------------------------------------------------------------------------
+  - id: MEDAPI-001
+    name: "phi-encryption-required"
+    description: >
+      All database columns storing PHI (patient names, DOB, MRN, email,
+      phone, address, insurance) must be encrypted before storage.
+      Direct Column() declarations for PHI fields without encryption
+      indicate a HIPAA violation.
+    type: regex
+    severity: high
+    pattern: "Column\\(String.*\\b(first_name|last_name|email|phone|address|insurance_id|medical_record_number|emergency_contact)\\b"
+    languages: ["python"]
+    standard: "HIPAA"
+    clause: "164.312(a)(2)(iv)"
+    remediation_guidance: >
+      Wrap PHI fields with the encryption service before storage.
+      Use EncryptedColumn type or call encrypt_phi() before db.add().
+    tags: ["phi", "encryption", "hipaa"]
+
+  # -------------------------------------------------------------------------
+  # MEDAPI-002: API endpoints must include traceability headers
+  # -------------------------------------------------------------------------
+  - id: MEDAPI-002
+    name: "endpoint-traceability-headers"
+    description: >
+      All API route functions must include traceability headers in their
+      responses, linking the request to the governing regulatory requirement.
+      This supports IEC 62304 clause 5.7 (bidirectional traceability).
+    type: required_pattern
+    severity: medium
+    pattern: "get_traceability_headers|X-Requirement-IDs"
+    file_pattern: "src/api/routes/*.py"
+    languages: ["python"]
+    standard: "IEC 62304"
+    clause: "5.7"
+    remediation_guidance: >
+      Import get_traceability_headers from src.utils.traceability and
+      include the returned headers in every API response.
+    tags: ["traceability", "iec-62304"]
+
+  # -------------------------------------------------------------------------
+  # MEDAPI-003: Clinical alert thresholds must not be hardcoded
+  # -------------------------------------------------------------------------
+  - id: MEDAPI-003
+    name: "no-hardcoded-clinical-thresholds"
+    description: >
+      Clinical alert thresholds (heart rate limits, SpO2 cutoffs, temperature
+      bounds) must be loaded from configuration, not hardcoded as magic
+      numbers. Hardcoded thresholds cannot be adjusted per-patient or
+      per-institution without a code change.
+    type: regex
+    severity: medium
+    pattern: "if\\s+(hr|heart_rate|spo2|temp|temperature|systolic|diastolic|glucose|respiratory)\\s*[<>]=?\\s*\\d"
+    file_pattern: "src/services/alert_engine.py"
+    languages: ["python"]
+    standard: "IEC 62304"
+    clause: "7.1"
+    remediation_guidance: >
+      Move threshold values to a configuration dict or external config file.
+      Use config.get("threshold_name", default) pattern instead of inline numbers.
+    tags: ["clinical", "configuration", "risk-management"]
+
+  # -------------------------------------------------------------------------
+  # MEDAPI-004: Database queries must go through repository layer
+  # -------------------------------------------------------------------------
+  - id: MEDAPI-004
+    name: "no-direct-db-in-routes"
+    description: >
+      API route handlers must not execute database queries directly.
+      All data access must go through the repository layer (src/db/repositories/)
+      to maintain separation of concerns and ensure consistent data handling.
+    type: regex
+    severity: high
+    pattern: "db\\.(execute|query|add|delete|commit)"
+    file_pattern: "src/api/routes/*.py"
+    languages: ["python"]
+    standard: "IEC 62304"
+    clause: "5.3"
+    remediation_guidance: >
+      Move database operations to the appropriate repository module
+      (patient_repo, vitals_repo, device_repo) and call the repository
+      function from the route handler.
+    tags: ["architecture", "separation-of-concerns"]
