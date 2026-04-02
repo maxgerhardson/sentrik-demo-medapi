@@ -118,11 +118,32 @@ Follow the step-by-step walkthrough in [`docs/walkthrough/`](docs/walkthrough/):
 - `.sentrik/config.yaml` — Full project configuration
 - `.sentrik/suppressions.yaml` — Suppression policies
 
+### New: Spec-Driven Compliance
+- `sentrik import-spec openapi.yaml` — Generate 9 security rules from OpenAPI spec
+- Detects: unauthenticated endpoints, sensitive data in responses (SSN, DOB), HTTP servers, unbounded inputs
+
+### New: Compliance Attestation & Trend
+- `sentrik attest` — Signed compliance proof (HMAC-SHA256) with findings digest and git SHA
+- `sentrik attest --verify` — Verify attestation integrity
+- `sentrik compliance-trend` — Historical compliance score trend
+- `sentrik risk-summary` — One-page executive HTML report with traffic light status
+
+### New: Context-Aware Drift Detection
+- `sentrik drift-scan` — Behavioral, structural, cross-file, and acceptance criteria drift analysis
+- `sentrik next-action` — Top 3 fixable findings prioritized by severity
+
+### New: Additional Standards Packs
+- `supply-chain-security` — 21 rules (SLSA, NIST SSDF, CI/CD hardening)
+- `nist-ai-rmf` — 15 rules (AI governance, bias, prompt injection, model security)
+- `python-security` — 18 rules (eval, pickle, subprocess, Django/Flask, crypto)
+
 ### Advanced (Enterprise)
 - Custom pack authoring (`.sentrik/rules/medapi-custom.yaml`)
 - Architecture rules (`architecture.yaml`)
 - Governance policies (`governance.yaml`)
+- Multi-agent scanning (`agent_scan: true` — each pack runs in parallel)
 - MCP integration for AI coding tools
+- LSP server for real-time as-you-type scanning
 - C/C++ analysis (`firmware/checksum.c`)
 - Auditor portal, RBAC, async approval gates
 

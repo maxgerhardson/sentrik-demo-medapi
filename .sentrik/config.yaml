@@ -1,75 +1,139 @@
-# =============================================================================
-# Sentrik Configuration — VitalSync Medical API
-# =============================================================================
-# Multi-framework compliance scanning for a regulated medical device API.
-# Covers IEC 62304, HIPAA, OWASP Top 10, and SOC2.
-# =============================================================================
-
-# Output
 output_dir: out
+standards_file: examples/sample_standards.yaml
+work_items_file: examples/sample_work_items.json
+llm_enabled: false
+llm_provider: anthropic
+llm_model: claude-haiku-4-5-20251001
+llm_base_url: ''
+confidence_scoring_enabled: false
+confidence_scoring_max_findings: 50
+provider: stub
+sarif_files: []
 reporters:
-  - html
-  - sarif
-  - junit
-  - csv
-
-# Standards packs — multi-framework compliance
-standards_packs:
-  - fda-iec-62304
-  - owasp-top-10
-  - hipaa
-  - soc2
-
-# Scan settings
-scan_exclude:
-  - "__pycache__"
-  - "node_modules"
-  - ".git"
-  - "out"
-  - ".venv"
-  - "recordings"
-  - "docs"
-  - "scripts"
-  - "examples"
-
-# Gate thresholds
+- html
+- sarif
+- junit
+- csv
+cache_enabled: true
+cache_dir: .guard_cache
 gate_fail_on:
-  - critical
-  - high
-
-# DevOps integration — GitHub
+- critical
+- high
 devops_provider: github
+azure_devops_org: ''
+azure_devops_project: ''
+azure_devops_team: ''
+azure_devops_iteration: ''
+azure_devops_repo: ''
+azure_devops_work_item_type: Issue
+azure_devops_work_item_types: []
+jira_issue_types: []
+standards_provider: stub
+azure_devops_standards_repo: ''
+azure_devops_standards_file: standards.yaml
 github_owner: maxgerhardson
 github_repo: sentrik-demo-medapi
-
-# Governance
+github_label: ''
+github_milestone: ''
+github_standards_repo: ''
+github_standards_file: standards.yaml
+github_standards_ref: main
+jira_base_url: ''
+jira_project_key: ''
+jira_jql: ''
+jira_standards_issue_key: ''
+standards_packs:
+- owasp-top-10
+- hipaa
+- soc2
+- fda-iec-62304
+- supply-chain-security
+- nist-ai-rmf
+- python-security
+- openapi-vitalsync-medical-api
+pack_overrides: {}
+severity_rescoring_enabled: false
+ml_severity_enabled: false
+parallel_scan: false
+max_workers: 4
+agent_scan: false
+agent_max_concurrency: 0
 governance:
   profile: standard
   human_review_required:
-    - on_critical_finding
-    - on_requirement_change
+  - on_critical_finding
+  - on_requirement_change
   auto_patch:
     enabled: true
     max_severity: low
   gate:
     fail_on:
-      - critical
-      - high
+    - critical
+    - high
     block_merge_on_obligations: false
   audit:
     enabled: true
     log_file: out/agent_audit.jsonl
-
-# Requirements traceability
+license_key: GUARD-ENTERPRISE-20260625-54433fa77ea882f5
+auth: {}
+scan_exclude:
+- __pycache__
+- node_modules
+- .git
+- out
+- .venv
+- recordings
+- docs
+- scripts
+- examples
+suppressions: []
+oauth: {}
+async_approval:
+  enabled: true
+  timeout_hours: 48
+  approvers:
+  - role: security_lead
+  - role: tech_lead
+notifications:
+  slack_webhook_url: ''
+  teams_webhook_url: ''
+  notify_on:
+  - gate_failed
+online_license_check: true
+portal_url: https://portal.sentrik.dev
+requirements_output_file: requirements.yaml
+cpp_analysis_enabled: false
+cpp_analysis_tool: clang-tidy
+cpp_analysis_checks: ''
+grc_webhook_url: ''
+grc_platform: generic
+grc_events: []
 requirement_coverage_enabled: true
-
-# Performance
-parallel_scan: false
-cache_enabled: true
-cache_dir: .guard_cache
-
-# Severity rescoring (will enable in Phase 2 to show before/after)
-severity_rescoring_enabled: false
-
-# Confidence scoring
-confidence_scoring_enabled: false
+requirement_coverage_exclude:
+- tests/*
+- test_*
+- '*.md'
+- '*.txt'
+- '*.yaml'
+- '*.yml'
+- '*.json'
+- '*.toml'
+- '*.cfg'
+- '*.ini'
+- '*.lock'
+- __init__.py
+- __pycache__/*
+- '*.pyc'
+- '*.pyo'
+- '*.db'
+- '*.db-shm'
+- '*.db-wal'
+- '*.sqlite*'
+- out/*
+- dist/*
+- build/*
+- '*.egg-info/*'
+- '*.patch'
+- '*.html'
+- '*.css'
+- '*.min.*'

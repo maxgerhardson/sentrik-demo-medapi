@@ -1,0 +1,138 @@
+openapi: "3.0.3"
+info:
+  title: VitalSync Medical API
+  version: "1.0.0"
+  description: Patient vitals ingestion and monitoring for wearable medical devices
+
+servers:
+  - url: http://localhost:8080
+  - url: https://api.vitalsync.example.com
+
+security:
+  - bearerAuth: []
+
+paths:
+  /patients:
+    get:
+      operationId: listPatients
+      summary: List all patients
+      security: []
+      responses:
+        "200":
+          description: Patient list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  patients:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Patient"
+
+  /patients/{patientId}:
+    get:
+      operationId: getPatient
+      summary: Get patient details
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Patient details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Patient"
+
+  /patients/{patientId}/vitals:
+    post:
+      operationId: recordVitals
+      summary: Record vital signs from wearable device
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                heart_rate:
+                  type: number
+                blood_pressure_systolic:
+                  type: number
+                blood_pressure_diastolic:
+                  type: number
+                spo2:
+                  type: number
+                temperature:
+                  type: number
+                respiratory_rate:
+                  type: number
+                blood_glucose:
+                  type: number
+                device_id:
+                  type: string
+                notes:
+                  type: string
+      responses:
+        "201":
+          description: Vitals recorded
+
+  /alerts:
+    get:
+      operationId: listAlerts
+      summary: List clinical alerts
+      security: []
+      responses:
+        "200":
+          description: Alert list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  alerts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        patient_id:
+                          type: string
+                        ssn:
+                          type: string
+                        severity:
+                          type: string
+                        message:
+                          type: string
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+  schemas:
+    Patient:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        date_of_birth:
+          type: string
+        ssn:
+          type: string
+        medical_record_number:
+          type: string
+        insurance_id:
+          type: string

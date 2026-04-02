@@ -1,0 +1,139 @@
+name: 'OpenAPI: VitalSync Medical API'
+description: Security rules derived from OpenAPI spec 'VitalSync Medical API' v1.0.0
+rules:
+- id: SPEC-AUTH-001
+  name: auth-required-listpatients
+  description: "Endpoint GET /patients has no authentication in the spec \u2014 ensure\
+    \ route handler enforces auth"
+  type: documentation_obligation
+  severity: medium
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: GET /patients
+  compliance_category: code
+  remediation_guidance: Add authentication middleware to GET /patients or declare
+    security in the OpenAPI spec.
+  tags:
+  - spec-import
+  - openapi
+  - authentication
+- id: SPEC-EXPOSE-002
+  name: sensitive-response-getpatient-date-of-birth
+  description: Response 200 of GET /patients/{patientId} exposes sensitive field 'date_of_birth'
+  type: documentation_obligation
+  severity: high
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: "GET /patients/{patientId} \u2192 200 \u2192 date_of_birth"
+  compliance_category: code
+  remediation_guidance: Review whether 'date_of_birth' should be in the response.
+    Consider removing it, masking it, or adding an explicit data classification.
+  tags:
+  - spec-import
+  - openapi
+  - data-exposure
+- id: SPEC-EXPOSE-003
+  name: sensitive-response-getpatient-ssn
+  description: Response 200 of GET /patients/{patientId} exposes sensitive field 'ssn'
+  type: documentation_obligation
+  severity: high
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: "GET /patients/{patientId} \u2192 200 \u2192 ssn"
+  compliance_category: code
+  remediation_guidance: Review whether 'ssn' should be in the response. Consider removing
+    it, masking it, or adding an explicit data classification.
+  tags:
+  - spec-import
+  - openapi
+  - data-exposure
+- id: SPEC-PARAM-004
+  name: validate-param-getpatient-patientid
+  description: Path parameter '{patientId}' in GET /patients/{patientId} has no validation
+    constraints
+  type: documentation_obligation
+  severity: medium
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: "GET /patients/{patientId} \u2192 {patientId}"
+  compliance_category: code
+  remediation_guidance: Add format, pattern, enum, or min/max constraints to parameter
+    'patientId' in the spec, and validate in the route handler.
+  tags:
+  - spec-import
+  - openapi
+  - input-validation
+  - path-params
+- id: SPEC-INPUT-005
+  name: validate-recordvitals-device-id
+  description: "Field 'device_id' in POST /patients/{patientId}/vitals is an unbounded\
+    \ string \u2014 add maxLength or pattern validation"
+  type: documentation_obligation
+  severity: medium
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: "POST /patients/{patientId}/vitals \u2192 device_id"
+  compliance_category: code
+  remediation_guidance: Add maxLength, pattern, or enum constraint to 'device_id'
+    in the schema, and validate input in the handler.
+  tags:
+  - spec-import
+  - openapi
+  - input-validation
+- id: SPEC-INPUT-006
+  name: validate-recordvitals-notes
+  description: "Field 'notes' in POST /patients/{patientId}/vitals is an unbounded\
+    \ string \u2014 add maxLength or pattern validation"
+  type: documentation_obligation
+  severity: medium
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: "POST /patients/{patientId}/vitals \u2192 notes"
+  compliance_category: code
+  remediation_guidance: Add maxLength, pattern, or enum constraint to 'notes' in the
+    schema, and validate input in the handler.
+  tags:
+  - spec-import
+  - openapi
+  - input-validation
+- id: SPEC-PARAM-007
+  name: validate-param-recordvitals-patientid
+  description: Path parameter '{patientId}' in POST /patients/{patientId}/vitals has
+    no validation constraints
+  type: documentation_obligation
+  severity: medium
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: "POST /patients/{patientId}/vitals \u2192 {patientId}"
+  compliance_category: code
+  remediation_guidance: Add format, pattern, enum, or min/max constraints to parameter
+    'patientId' in the spec, and validate in the route handler.
+  tags:
+  - spec-import
+  - openapi
+  - input-validation
+  - path-params
+- id: SPEC-AUTH-008
+  name: auth-required-listalerts
+  description: "Endpoint GET /alerts has no authentication in the spec \u2014 ensure\
+    \ route handler enforces auth"
+  type: documentation_obligation
+  severity: medium
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: GET /alerts
+  compliance_category: code
+  remediation_guidance: Add authentication middleware to GET /alerts or declare security
+    in the OpenAPI spec.
+  tags:
+  - spec-import
+  - openapi
+  - authentication
+- id: SPEC-TLS-009
+  name: require-https-server
+  description: Server URL 'http://localhost:8080' uses HTTP instead of HTTPS
+  type: regex
+  pattern: http://localhost:8080
+  severity: high
+  file_glob: '**/*.{py,js,ts,jsx,tsx,java,go,rs,rb,cs,php,kt}'
+  standard: 'OpenAPI: VitalSync Medical API'
+  clause: servers
+  compliance_category: code
+  remediation_guidance: Change the server URL to use HTTPS. Never use plain HTTP for
+    API traffic.
+  tags:
+  - spec-import
+  - openapi
+  - tls
